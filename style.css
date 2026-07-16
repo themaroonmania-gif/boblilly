@@ -1442,3 +1442,256 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .paywall-close { position: absolute; top: 1.5rem; right: 1.5rem; font-size: 1.5rem; color: #6B7280; background: transparent; transition: 0.3s; z-index: 10; border: none; cursor: pointer; }
 .paywall-close:hover { color: #07141E; transform: rotate(90deg); }
 
+
+/* ===================================
+   MODERN CREATIVE AGENCY OVERHAUL
+   =================================== */
+:root {
+  --orange: #FF552F;
+  --blue: #0072D2;
+  --dark: #0A0A0A; /* Deeper dark */
+  --light: #F4F4F5; /* Studio gray */
+  --glass: rgba(255,255,255,0.7);
+  --glass-dark: rgba(10,10,10,0.8);
+}
+
+body {
+  background: var(--light);
+  color: var(--dark);
+}
+
+section {
+  padding: 160px 0 !important;
+  overflow: hidden;
+}
+
+/* Typography Overhaul */
+h1, h2, h3, h4, h5, h6, .section-title {
+  font-family: 'Syne', sans-serif !important;
+  font-weight: 800 !important;
+  letter-spacing: -0.05em !important;
+  line-height: 1 !important;
+}
+
+.section-title {
+  font-size: clamp(3rem, 8vw, 6rem) !important;
+  text-transform: uppercase;
+  margin-bottom: 2rem !important;
+}
+
+.section-tag {
+  font-family: 'Syne', sans-serif !important;
+  font-size: 1rem !important;
+  background: var(--orange);
+  color: #fff !important;
+  padding: 8px 16px;
+  border-radius: 40px;
+  display: inline-block;
+  margin-bottom: 24px;
+}
+
+/* Navbar */
+.navbar {
+  margin: 20px auto;
+  width: calc(100% - 40px);
+  max-width: 1400px;
+  border-radius: 100px;
+  background: rgba(255,255,255,0.8) !important;
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255,255,255,0.5);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+}
+
+.nav-links a {
+  font-family: 'Syne', sans-serif !important;
+  font-weight: 700 !important;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+}
+
+/* Hero Section */
+.hero {
+  min-height: 100vh !important;
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding-top: 120px !important;
+  background: var(--light) !important;
+}
+.hero h1 {
+  font-size: clamp(4rem, 10vw, 8rem) !important;
+  text-transform: uppercase;
+  mix-blend-mode: exclusion;
+  color: #fff;
+}
+.hero-bg-wrap {
+  position: absolute;
+  top: 10%;
+  right: 5%;
+  width: 60vw;
+  height: 80vh;
+  border-radius: 40px;
+  overflow: hidden;
+  box-shadow: 0 40px 100px rgba(255,85,47,0.2);
+  z-index: 0;
+}
+
+/* Services Grid: Asymmetrical Staggered layout */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)) !important;
+  gap: 40px !important;
+  align-items: start;
+}
+.service-card {
+  background: #FFF !important;
+  border-radius: 32px !important;
+  border: none !important;
+  padding: 40px !important;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.03) !important;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.6s !important;
+}
+@media (min-width: 768px) {
+  .services-grid .service-card:nth-child(even) {
+    margin-top: 80px !important;
+  }
+}
+.service-card:hover {
+  transform: translateY(-20px) scale(1.02) !important;
+  box-shadow: 0 40px 80px rgba(0,0,0,0.08) !important;
+}
+.service-card img {
+  border-radius: 20px !important;
+  margin-bottom: 30px !important;
+  transform: scale(1.05);
+  transition: 0.8s ease !important;
+}
+.service-card:hover img {
+  transform: scale(1);
+}
+
+/* Case Studies: Overlapping offset layout */
+.cases-grid {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 120px !important;
+}
+.case-card {
+  display: flex !important;
+  align-items: center !important;
+  gap: 40px !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  flex-direction: row !important;
+  height: auto !important;
+}
+.case-card:nth-child(even) {
+  flex-direction: row-reverse !important;
+}
+.case-card img {
+  width: 60% !important;
+  height: auto !important;
+  border-radius: 40px !important;
+  box-shadow: 0 30px 60px rgba(0,0,0,0.1) !important;
+}
+.case-overlay {
+  position: static !important;
+  width: 40% !important;
+  background: transparent !important;
+  color: var(--dark) !important;
+  padding: 40px !important;
+  transform: none !important;
+}
+.case-overlay h3 {
+  font-size: 3rem !important;
+  color: var(--dark) !important;
+}
+.case-overlay p {
+  color: var(--gray-700) !important;
+}
+
+/* Stores Grid */
+.stores-grid {
+  gap: 30px !important;
+}
+.store-card {
+  border-radius: 30px !important;
+  border: 1px solid rgba(0,0,0,0.05) !important;
+  box-shadow: none !important;
+  background: #FFF !important;
+}
+
+/* CTAs and Buttons */
+.btn {
+  font-family: 'Syne', sans-serif !important;
+  font-size: 1.1rem !important;
+  font-weight: 700 !important;
+  border-radius: 100px !important;
+  padding: 16px 40px !important;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.btn-primary {
+  background: var(--orange) !important;
+  color: #fff !important;
+  box-shadow: 0 10px 30px rgba(255,85,47,0.3) !important;
+}
+
+/* Footer */
+.footer {
+  background: var(--dark) !important;
+  color: #fff !important;
+  border-radius: 40px 40px 0 0 !important;
+  margin-top: -40px;
+}
+
+/* Testimonials */
+.testimonial-card {
+  border-radius: 32px !important;
+  background: #FFF !important;
+  padding: 60px !important;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.05) !important;
+}
+.testimonial-text {
+  font-size: 1.5rem !important;
+  font-weight: 500 !important;
+  line-height: 1.4 !important;
+  color: var(--dark) !important;
+}
+
+/* Make Vanta look good behind glass */
+#hero-vanta {
+  opacity: 0.8;
+}
+
+
+@media (max-width: 900px) {
+  .case-card {
+    flex-direction: column !important;
+    gap: 20px !important;
+  }
+  .case-card:nth-child(even) {
+    flex-direction: column !important;
+  }
+  .case-card img {
+    width: 100% !important;
+  }
+  .case-overlay {
+    width: 100% !important;
+    padding: 0 !important;
+  }
+  .case-overlay h3 {
+    font-size: 2rem !important;
+  }
+  .services-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .services-grid .service-card:nth-child(even) {
+    margin-top: 0 !important;
+  }
+  .hero h1 {
+    font-size: clamp(3rem, 12vw, 4rem) !important;
+  }
+}
+
