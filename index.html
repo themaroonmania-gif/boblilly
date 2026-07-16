@@ -3,16 +3,143 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bob Lilly - Coming Soon</title>
+    <title>Bob Lilly Promotions | Premium Branded Merchandise</title>
+    <meta name="description" content="Dallas promotional products company trusted for 27 years. Branded merch, online company stores, uniforms, and fulfillment.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <main class="hero">
-        <div class="content">
-            <h1>Bob Lilly</h1>
-            <p>Welcome to the new site. We're currently designing something amazing.</p>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">BLP<span>.</span></a>
+            <div class="nav-links">
+                <a href="#services">Services</a>
+                <a href="#markets">Markets</a>
+                <a href="#about">About</a>
+                <a href="#contact" class="btn btn-primary nav-btn">Get Started</a>
+            </div>
+            <button class="mobile-menu-btn">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+            </button>
         </div>
-    </main>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="hero-bg">
+            <div class="glow glow-1"></div>
+            <div class="glow glow-2"></div>
+        </div>
+        <div class="container hero-content">
+            <div class="hero-text">
+                <div class="badge">Trusted for 27 Years</div>
+                <h1 class="hero-title">Elevate Your Brand's <span>Impact.</span></h1>
+                <p class="hero-subtitle">Dallas's premier partner for branded merchandise, company stores, uniforms, and comprehensive fulfillment. We don't just put your logo on products; we build brand experiences.</p>
+                <div class="hero-actions">
+                    <a href="#contact" class="btn btn-primary btn-lg">Start Your Project</a>
+                    <a href="#work" class="btn btn-secondary btn-lg">View Our Work</a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <!-- Abstract 3D/Glassmorphism shapes representing promotional items -->
+                <div class="glass-card main-card">
+                    <div class="card-header">
+                        <div class="circle"></div>
+                        <div class="circle"></div>
+                        <div class="circle"></div>
+                    </div>
+                    <div class="card-body">
+                        <div class="mock-line bold"></div>
+                        <div class="mock-line"></div>
+                        <div class="mock-line short"></div>
+                        <div class="mock-product"></div>
+                    </div>
+                </div>
+                <div class="glass-card float-card-1"></div>
+                <div class="glass-card float-card-2"></div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Expertise</h2>
+                <p>Comprehensive solutions tailored for industry leaders.</p>
+            </div>
+            <div class="services-grid">
+                <a href="#merch" class="service-card">
+                    <div class="service-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7.01" y2="7"></line></svg>
+                    </div>
+                    <h3>Branded Merch</h3>
+                    <p>High-quality promotional products that leave a lasting impression.</p>
+                </a>
+                <a href="#stores" class="service-card">
+                    <div class="service-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+                    </div>
+                    <h3>Company Stores</h3>
+                    <p>Custom e-commerce platforms for seamless employee and client ordering.</p>
+                </a>
+                <a href="#uniforms" class="service-card">
+                    <div class="service-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.38 3.46L16 2a8 8 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.47a1 1 0 0 0 .99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.47a2 2 0 0 0-1.34-2.23z"></path></svg>
+                    </div>
+                    <h3>Uniforms</h3>
+                    <p>Professional apparel programs designed for comfort and brand consistency.</p>
+                </a>
+                <a href="#fulfillment" class="service-card">
+                    <div class="service-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="16.5" y1="9.4" x2="7.5" y2="4.21"></line><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+                    </div>
+                    <h3>Fulfillment</h3>
+                    <p>End-to-end warehousing, kitting, and distribution services.</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Paywall Modal -->
+    <div id="paywall-modal" class="modal-overlay">
+        <div class="modal-content">
+            <button class="close-modal">&times;</button>
+            <div class="modal-header">
+                <div class="warning-icon">
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+                </div>
+                <h2>Hold Your Horses, Cowboy.</h2>
+            </div>
+            <div class="modal-body">
+                <p>You've reached the <strong>Bob Lilly Premium Paywall™</strong>.</p>
+                <p>This stunning, highly-optimized, incredibly sleek website experience was crafted by the one and only <strong>Thomas Harden</strong>.</p>
+                <div class="invoice-box">
+                    <div class="invoice-row">
+                        <span>Current Status:</span>
+                        <span class="status-unpaid">UNPAID</span>
+                    </div>
+                    <div class="invoice-row">
+                        <span>Developer:</span>
+                        <span>Thomas Harden</span>
+                    </div>
+                    <div class="invoice-row total">
+                        <span>Total Due to Unlock:</span>
+                        <span>$One Million Dollars</span>
+                    </div>
+                </div>
+                <p class="joke-text">Before you can click that link and explore further, the developer requires his tribute. Venmo, Wire Transfer, or a lifetime supply of Cowboys tickets accepted.</p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" id="pay-now-btn">Pay Thomas Harden</button>
+                <button class="btn btn-secondary" id="close-modal-btn">I'll Just Admire the Homepage</button>
+            </div>
+        </div>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>
