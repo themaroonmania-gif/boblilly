@@ -26,7 +26,7 @@
     .crt::before {
       content: " ";
       display: block;
-      position: absolute;
+      position: fixed;
       top: 0;
       left: 0;
       bottom: 0;
@@ -112,6 +112,7 @@
       width: 100%;
       max-width: 800px;
       touch-action: none;
+      cursor: none;
     }
     .instructions {
       text-align: center;
@@ -185,50 +186,7 @@
       while(drops.length < newColumns) drops.push(1);
     });
 
-    // ========== CURSOR TRAIL EFFECT ==========
-    const cursorCanvas = document.createElement("canvas");
-    cursorCanvas.style.position = "fixed";
-    cursorCanvas.style.top = "0";
-    cursorCanvas.style.left = "0";
-    cursorCanvas.style.width = "100%";
-    cursorCanvas.style.height = "100%";
-    cursorCanvas.style.pointerEvents = "none";
-    cursorCanvas.style.zIndex = "999998";
-    document.body.appendChild(cursorCanvas);
-    const ctxTrail = cursorCanvas.getContext("2d");
-    let trail = [];
-    window.addEventListener("mousemove", (e) => {
-      trail.push({ x: e.clientX, y: e.clientY, age: 0 });
-    });
-    window.addEventListener("resize", () => {
-      cursorCanvas.width = window.innerWidth;
-      cursorCanvas.height = window.innerHeight;
-    });
-    cursorCanvas.width = window.innerWidth;
-    cursorCanvas.height = window.innerHeight;
-    function drawTrail() {
-      ctxTrail.clearRect(0, 0, cursorCanvas.width, cursorCanvas.height);
-      if (trail.length > 0) {
-        ctxTrail.beginPath();
-        ctxTrail.moveTo(trail[0].x, trail[0].y);
-        for (let i = 1; i < trail.length; i++) ctxTrail.lineTo(trail[i].x, trail[i].y);
-        const gradient = ctxTrail.createLinearGradient(0, 0, cursorCanvas.width, cursorCanvas.height);
-        gradient.addColorStop(0, "#FF552F");
-        gradient.addColorStop(0.5, "#FFD54F");
-        gradient.addColorStop(1, "#0072D2");
-        ctxTrail.strokeStyle = gradient;
-        ctxTrail.lineWidth = 6;
-        ctxTrail.lineCap = "round";
-        ctxTrail.globalAlpha = 0.8;
-        ctxTrail.stroke();
-      }
-      for (let i = 0; i < trail.length; i++) {
-        trail[i].age++;
-        if (trail[i].age > 20) { trail.splice(i, 1); i--; }
-      }
-      requestAnimationFrame(drawTrail);
-    }
-    drawTrail();
+
 
     // ========== PONG ARCADE GAME ==========
     const canvas = document.getElementById('gameCanvas');
@@ -317,12 +275,7 @@
         }
         return;
       }
-      ctx.setLineDash([10, 15]);
-      ctx.beginPath();
-      ctx.moveTo(canvas.width/2, 0);
-      ctx.lineTo(canvas.width/2, canvas.height);
-      ctx.strokeStyle = 'rgba(255,255,255,0.2)';
-      ctx.stroke();
+
       drawText(player.score, canvas.width/4, 80);
       drawText(ai.score, 3*canvas.width/4, 80);
       drawRect(player.x, player.y, player.w, player.h, '#39FF14');
