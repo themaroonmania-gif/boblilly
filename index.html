@@ -3,13 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bob Lilly Promotions — The Best Merch for The Best Brands</title>
-  <meta name="description" content="Bob Lilly Promotions is a full-service promotional products and marketing company based in Dallas, TX. Online Company Stores, Custom Merch, Creative Services, and Full-Service Promotional Programs.">
+  <title>Bob Lilly Promotions — Elevate Your Brand</title>
+  <meta name="description" content="Bob Lilly Promotions is a full-service promotional products and marketing company based in Dallas, TX.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800;900&family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap" rel="stylesheet">
   <link rel="icon" type="image/webp" href="assets/logo.webp">
   <link rel="stylesheet" href="style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.halo.min.js"></script>
 </head>
 <body>
 
@@ -20,17 +22,11 @@
         <img src="assets/logo.webp" alt="Bob Lilly Promotions" loading="eager">
       </a>
       <ul class="nav-links" id="navLinks">
-        <li><a href="#services">Services</a></li>
-        <li><a href="#case-studies">Projects</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#blog">Resources</a></li>
-        <li class="nav-phone"><a href="tel:2142312082">📞 (214) 231-2082</a></li>
-        <li class="nav-cta-li"><a href="#contact" class="nav-cta">Get Started</a></li>
+        <li><a href="#services">What We Do</a></li>
+        <li><a href="#case-studies">Our Work</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li class="nav-cta-li"><a href="#contact" class="nav-cta">Start a Project</a></li>
       </ul>
-      <div class="nav-right-desktop">
-        <a href="tel:2142312082" class="nav-phone-desktop">📞 (214) 231-2082</a>
-        <a href="#contact" class="nav-cta">Get Started</a>
-      </div>
       <button class="nav-hamburger" id="navHamburger" aria-label="Open menu">
         <span></span><span></span><span></span>
       </button>
@@ -38,550 +34,182 @@
   </nav>
 
   <!-- ========== HERO ========== -->
-  <section class="hero" id="hero">
-    <div class="hero-bg-wrap">
-      <img src="assets/cta-bg.webp" alt="" class="hero-bg-img" loading="eager">
-      <div class="hero-overlay"></div>
-    </div>
-    <div class="hero-container">
+  <header class="hero" id="hero">
+    <div class="hero-bg-anim" id="hero-vanta"></div>
+    <div class="hero-container container">
       <div class="hero-content anim-ready">
-        <div class="hero-badges">
-          <div class="hero-badge trust-badge">
-            <span class="badge-num">27</span>
-            <span class="badge-txt">Years<br>Trusted</span>
-          </div>
-          <img src="assets/wbenc-seal.webp" alt="WBENC Certified" class="hero-wbenc">
-        </div>
-        <h1 class="hero-headline">The Best Merch<br>for <span class="text-gradient">The Best Brands</span></h1>
-        <p class="hero-sub">As a marketing and promotional products company, we provide <strong>Online Company Stores</strong>, <strong>Custom Merch</strong>, <strong>Creative Services</strong>, and <strong>Full-Service Promotional Programs</strong>, making it easy to launch, manage, and grow an unforgettable brand experience.</p>
+        <div class="hero-tag">🔥 27 Years of Excellence</div>
+        <h1 class="hero-headline">We Build <br><span class="text-gradient">Unforgettable</span> <br>Brand Experiences.</h1>
+        <p class="hero-sub">Merch • Company Stores • Fulfillment • Creative Design<br>We don't just put your logo on a mug. We craft strategic promotional programs that drive real revenue and loyalty.</p>
         <div class="hero-ctas">
-          <a href="#contact" class="btn btn-primary btn-lg">Get Started <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-          <a href="#case-studies" class="btn btn-outline-white btn-lg">View Our Work</a>
+          <a href="#contact" class="btn btn-primary btn-lg">Work With Us</a>
+          <a href="#services" class="btn btn-outline btn-lg">Explore Services</a>
         </div>
       </div>
       <div class="hero-visual anim-ready">
-        <div class="hero-merch-grid">
-          <img src="assets/merch-1.webp" alt="Branded merchandise" class="hero-merch hm-1" loading="eager">
-          <img src="assets/merch-5.webp" alt="Custom merch" class="hero-merch hm-2" loading="eager">
-          <img src="assets/merch-3.webp" alt="Promotional products" class="hero-merch hm-3" loading="eager">
-          <img src="assets/merch-6.webp" alt="Brand merch" class="hero-merch hm-4" loading="eager">
-          <img src="assets/hero-image.webp" alt="Hero showcase" class="hero-merch hm-5" loading="eager">
-          <img src="assets/merch-8.webp" alt="Premium merch" class="hero-merch hm-6" loading="eager">
+        <div class="glass-card main-hero-img">
+          <img src="assets/hero-image.webp" alt="Premium Merch">
         </div>
       </div>
     </div>
-    <div class="hero-scroll-indicator">
-      <span>Scroll to Explore</span>
-      <div class="scroll-arrow"></div>
-    </div>
-  </section>
+  </header>
 
-  <!-- ========== STATS STRIP ========== -->
-  <section class="stats-strip">
-    <div class="container">
-      <div class="stats-grid">
-        <div class="stat-item anim-ready">
-          <span class="stat-number" data-count="27">0</span><span class="stat-suffix">+</span>
-          <span class="stat-label">Years in Business</span>
+  <!-- ========== CLIENT MARQUEE ========== -->
+  <section class="clients">
+    <div class="marquee-wrap">
+      <div class="marquee-track">
+        <div class="marquee-set">
+          <img src="assets/cowboys.webp" alt="Dallas Cowboys">
+          <img src="assets/brownforman.webp" alt="Brown-Forman">
+          <img src="assets/dickeys-logo.webp" alt="Dickey's BBQ">
+          <img src="assets/boardwalk-logo.webp" alt="Boardwalk Pipelines">
+          <img src="assets/ideal-dental.webp" alt="Ideal Dental">
+          <img src="assets/lawboss.webp" alt="LawBoss">
         </div>
-        <div class="stat-item anim-ready">
-          <span class="stat-number" data-count="500">0</span><span class="stat-suffix">+</span>
-          <span class="stat-label">Brands Served</span>
-        </div>
-        <div class="stat-item anim-ready">
-          <span class="stat-number" data-count="50">0</span><span class="stat-suffix">K+</span>
-          <span class="stat-label">Products Delivered</span>
-        </div>
-        <div class="stat-item anim-ready">
-          <span class="stat-number" data-count="98">0</span><span class="stat-suffix">%</span>
-          <span class="stat-label">Client Satisfaction</span>
+        <div class="marquee-set" aria-hidden="true">
+          <img src="assets/cowboys.webp" alt="Dallas Cowboys">
+          <img src="assets/brownforman.webp" alt="Brown-Forman">
+          <img src="assets/dickeys-logo.webp" alt="Dickey's BBQ">
+          <img src="assets/boardwalk-logo.webp" alt="Boardwalk Pipelines">
+          <img src="assets/ideal-dental.webp" alt="Ideal Dental">
+          <img src="assets/lawboss.webp" alt="LawBoss">
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== SERVICES ========== -->
+  <!-- ========== BENTO BOX SERVICES ========== -->
   <section class="services" id="services">
     <div class="container">
       <div class="section-header anim-ready">
-        <span class="section-tag">What We Do</span>
-        <h2 class="section-title">Full-Service Promotional Solutions</h2>
-        <p class="section-sub">From branded merchandise to complete marketing programs — we do it all, and we do it exceptionally well.</p>
+        <h2 class="section-title">Everything You Need, <br>Under One Roof.</h2>
+        <p class="section-sub">Stop juggling vendors. We offer end-to-end solutions to scale your brand's physical presence seamlessly.</p>
       </div>
-      <div class="services-grid">
-        <div class="service-card anim-ready">
-          <div class="service-img-wrap">
-            <img src="assets/service-1.webp" alt="Branded Merch" loading="lazy">
-            <div class="service-img-overlay"></div>
+      <div class="bento-grid">
+        <a href="#contact" class="bento-card bento-large anim-ready">
+          <img src="assets/service-1.webp" alt="Branded Merch" class="bento-bg">
+          <div class="bento-content">
+            <h3>Branded Merchandise</h3>
+            <p>Curated, high-quality promotional products that leave a lasting impression.</p>
           </div>
-          <div class="service-body">
-            <h3>Branded Merch</h3>
-            <p>High-quality promotional products that leave a lasting impression on your audience and keep your brand top of mind.</p>
-            <a href="#" class="service-link">Learn More →</a>
+        </a>
+        <a href="#contact" class="bento-card anim-ready">
+          <img src="assets/ecommerce.webp" alt="Company Stores" class="bento-bg">
+          <div class="bento-content">
+            <h3>Company Stores</h3>
+            <p>Custom e-commerce platforms for seamless ordering.</p>
           </div>
-        </div>
-        <div class="service-card anim-ready">
-          <div class="service-img-wrap">
-            <img src="assets/service-2.webp" alt="Loyalty & Incentives" loading="lazy">
-            <div class="service-img-overlay"></div>
-          </div>
-          <div class="service-body">
-            <h3>Loyalty & Incentives</h3>
-            <p>Programs that move behavior and build lasting brand affinity through meaningful rewards and recognition.</p>
-            <a href="#" class="service-link">Learn More →</a>
-          </div>
-        </div>
-        <div class="service-card anim-ready">
-          <div class="service-img-wrap">
-            <img src="assets/service-3.webp" alt="Marketing & Strategy" loading="lazy">
-            <div class="service-img-overlay"></div>
-          </div>
-          <div class="service-body">
-            <h3>Marketing & Strategy</h3>
-            <p>Modern merch for high-growth, high-expectation brands that demand more than cookie-cutter solutions.</p>
-            <a href="#" class="service-link">Learn More →</a>
-          </div>
-        </div>
-        <div class="service-card anim-ready">
-          <div class="service-img-wrap">
-            <img src="assets/creative.webp" alt="Creative & Design" loading="lazy">
-            <div class="service-img-overlay"></div>
-          </div>
-          <div class="service-body">
-            <h3>Creative & Design</h3>
-            <p>Sophisticated branded programs for demanding clients who need custom creative that truly stands out.</p>
-            <a href="#" class="service-link">Learn More →</a>
-          </div>
-        </div>
-        <div class="service-card anim-ready">
-          <div class="service-img-wrap">
-            <img src="assets/service-5.webp" alt="Print & Packaging" loading="lazy">
-            <div class="service-img-overlay"></div>
-          </div>
-          <div class="service-body">
+        </a>
+        <a href="#contact" class="bento-card anim-ready">
+          <img src="assets/service-5.webp" alt="Print & Packaging" class="bento-bg">
+          <div class="bento-content">
             <h3>Print & Packaging</h3>
-            <p>Print that tells your brand story from the outside in — packaging, labels, boxes, and beyond.</p>
-            <a href="#" class="service-link">Learn More →</a>
+            <p>Elevate the unboxing experience.</p>
           </div>
-        </div>
-        <div class="service-card anim-ready">
-          <div class="service-img-wrap">
-            <img src="assets/ecommerce.webp" alt="Online Stores" loading="lazy">
-            <div class="service-img-overlay"></div>
-          </div>
-          <div class="service-body">
-            <h3>Online Stores</h3>
-            <p>Custom e-commerce platforms for seamless employee and client ordering, branded to your specifications.</p>
-            <a href="#" class="service-link">Learn More →</a>
-          </div>
-        </div>
-        <div class="service-card anim-ready">
-          <div class="service-img-wrap">
-            <img src="assets/service-6.webp" alt="Awards & Recognition" loading="lazy">
-            <div class="service-img-overlay"></div>
-          </div>
-          <div class="service-body">
+        </a>
+        <a href="#contact" class="bento-card anim-ready">
+          <img src="assets/service-6.webp" alt="Awards & Recognition" class="bento-bg">
+          <div class="bento-content">
             <h3>Awards & Recognition</h3>
-            <p>Donor recognition, gala merch, and everything in between — celebrate your people the right way.</p>
-            <a href="#" class="service-link">Learn More →</a>
+            <p>Celebrate your people the right way.</p>
           </div>
-        </div>
+        </a>
+        <a href="#contact" class="bento-card bento-wide anim-ready">
+          <img src="assets/service-4.webp" alt="Fulfillment" class="bento-bg">
+          <div class="bento-content">
+            <h3>Global Fulfillment</h3>
+            <p>We handle the warehousing, kitting, and shipping so you don't have to.</p>
+          </div>
+        </a>
       </div>
     </div>
   </section>
 
-  <!-- ========== CASE STUDIES ========== -->
-  <section class="case-studies" id="case-studies">
+  <!-- ========== IMPACT & CASE STUDIES ========== -->
+  <section class="impact" id="case-studies">
     <div class="container">
-      <div class="section-header anim-ready">
-        <span class="section-tag">Our Work</span>
-        <h2 class="section-title">Featured Projects</h2>
-        <p class="section-sub">Real results for real brands. Explore our latest case studies and see how we bring visions to life.</p>
+      <div class="impact-stats anim-ready">
+        <div class="stat-box">
+          <span class="stat-num" data-target="27">0</span>
+          <span class="stat-text">Years of Experience</span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-num" data-target="500">0</span><span class="stat-plus">+</span>
+          <span class="stat-text">Brands Powered</span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-num" data-target="50">0</span><span class="stat-plus">K</span>
+          <span class="stat-text">Products Shipped</span>
+        </div>
       </div>
-      <div class="cases-grid">
-        <div class="case-card case-large anim-ready">
-          <img src="assets/arctic-wolf.webp" alt="Arctic Wolf" loading="lazy">
-          <div class="case-overlay">
-            <span class="case-tag">Case Study</span>
-            <h3>Arctic Wolf</h3>
-            <p>BLP designed a custom multi-tiered recognition box built around a reveal experience, each kit to be unveiled across multiple days.</p>
-            <a href="#" class="case-link">View Project →</a>
+      
+      <div class="section-header anim-ready mt-100">
+        <h2 class="section-title">Projects That Speak Volumes</h2>
+      </div>
+      
+      <div class="cases-flex">
+        <div class="case-card anim-ready">
+          <div class="case-img"><img src="assets/dickeys.webp" alt="Dickey's BBQ"></div>
+          <div class="case-info">
+            <span class="case-client">Dickey's BBQ Pit</span>
+            <h4>Unified Brand Identity for 500+ Locations</h4>
+            <p>Designed, produced, and delivered cohesive merch and uniforms across thousands of employees.</p>
           </div>
         </div>
         <div class="case-card anim-ready">
-          <img src="assets/dickeys.webp" alt="Dickey's BBQ Pit" loading="lazy">
-          <div class="case-overlay">
-            <span class="case-tag">Case Study</span>
-            <h3>Dickey's BBQ Pit</h3>
-            <p>500+ locations and 5,000+ employees, unified under one cohesive brand identity, designed, produced, and delivered by BLP.</p>
-            <a href="#" class="case-link">View Project →</a>
+          <div class="case-img"><img src="assets/arctic-wolf.webp" alt="Arctic Wolf"></div>
+          <div class="case-info">
+            <span class="case-client">Arctic Wolf</span>
+            <h4>Multi-Tiered Reveal Experience</h4>
+            <p>A custom recognition box built around a multi-day unveiling experience to maximize engagement.</p>
           </div>
         </div>
         <div class="case-card anim-ready">
-          <img src="assets/boardwalk.webp" alt="Boardwalk Pipelines" loading="lazy">
-          <div class="case-overlay">
-            <span class="case-tag">Case Study</span>
-            <h3>Boardwalk Pipelines</h3>
-            <p>5,000 employees, one store, every location covered — a streamlined merch program that scales.</p>
-            <a href="#" class="case-link">View Project →</a>
-          </div>
-        </div>
-        <div class="case-card anim-ready">
-          <img src="assets/hunt-with-ted.webp" alt="Hunt with Ted" loading="lazy">
-          <div class="case-overlay">
-            <span class="case-tag">Case Study</span>
-            <h3>Hunt with Ted</h3>
-            <p>BLP created a Hunt with Ted campaign around two legends: the historic YO Ranch and rock-n-roll icon Ted Nugent.</p>
-            <a href="#" class="case-link">View Project →</a>
+          <div class="case-img"><img src="assets/boardwalk.webp" alt="Boardwalk Pipelines"></div>
+          <div class="case-info">
+            <span class="case-client">Boardwalk Pipelines</span>
+            <h4>Streamlined Employee Store</h4>
+            <p>Serving 5,000 employees seamlessly under one highly integrated company store platform.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== CLIENT LOGOS ========== -->
-  <section class="clients" id="clients">
-    <div class="container">
-      <div class="clients-stat anim-ready">
-        <p class="clients-quote">"Nearly <strong>90% of customers</strong> remember the company that gave them a branded item."</p>
-        <span class="clients-source">— Promotional Products Association International (PPAI)</span>
-      </div>
-    </div>
-    <div class="marquee-wrap">
-      <div class="marquee-track" id="marqueeTrack">
-        <div class="marquee-set">
-          <img src="assets/cowboys.webp" alt="Dallas Cowboys" loading="lazy">
-          <img src="assets/brownforman.webp" alt="Brown-Forman" loading="lazy">
-          <img src="assets/dickeys-logo.webp" alt="Dickey's BBQ" loading="lazy">
-          <img src="assets/boardwalk-logo.webp" alt="Boardwalk Pipelines" loading="lazy">
-          <img src="assets/ideal-dental.webp" alt="Ideal Dental" loading="lazy">
-          <img src="assets/lawboss.webp" alt="LawBoss" loading="lazy">
-          <img src="assets/cpg.webp" alt="CPG" loading="lazy">
-          <img src="assets/unknown-client.webp" alt="Client" loading="lazy">
-        </div>
-        <div class="marquee-set" aria-hidden="true">
-          <img src="assets/cowboys.webp" alt="Dallas Cowboys" loading="lazy">
-          <img src="assets/brownforman.webp" alt="Brown-Forman" loading="lazy">
-          <img src="assets/dickeys-logo.webp" alt="Dickey's BBQ" loading="lazy">
-          <img src="assets/boardwalk-logo.webp" alt="Boardwalk Pipelines" loading="lazy">
-          <img src="assets/ideal-dental.webp" alt="Ideal Dental" loading="lazy">
-          <img src="assets/lawboss.webp" alt="LawBoss" loading="lazy">
-          <img src="assets/cpg.webp" alt="CPG" loading="lazy">
-          <img src="assets/unknown-client.webp" alt="Client" loading="lazy">
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========== ONLINE STORES SHOWCASE ========== -->
-  <section class="stores" id="stores">
-    <div class="container">
-      <div class="stores-layout">
-        <div class="stores-text anim-ready">
-          <span class="section-tag">Online Company Stores</span>
-          <h2 class="section-title">Our online stores are used by the best brands</h2>
-          <p class="section-sub">Custom e-commerce platforms for seamless employee and client ordering. Branded, managed, and fulfilled — all by BLP.</p>
-          <ul class="stores-features">
-            <li><span class="check">✓</span> Custom branded storefronts</li>
-            <li><span class="check">✓</span> Employee & client portals</li>
-            <li><span class="check">✓</span> Inventory management</li>
-            <li><span class="check">✓</span> Budget & approval controls</li>
-            <li><span class="check">✓</span> Real-time reporting & analytics</li>
-            <li><span class="check">✓</span> Drop-ship & bulk fulfillment</li>
-          </ul>
-          <a href="#contact" class="btn btn-primary">Launch Your Store →</a>
-        </div>
-        <div class="stores-gallery anim-ready">
-          <div class="store-img si-1"><img src="assets/store-1.webp" alt="Online Store Screenshot" loading="lazy"></div>
-          <div class="store-img si-2"><img src="assets/store-2.webp" alt="Online Store Screenshot" loading="lazy"></div>
-          <div class="store-img si-3"><img src="assets/store-3.webp" alt="Online Store Screenshot" loading="lazy"></div>
-          <div class="store-img si-4"><img src="assets/store-4.webp" alt="Online Store Screenshot" loading="lazy"></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========== MERCH SHOWCASE STRIP ========== -->
-  <section class="merch-strip">
-    <div class="merch-strip-inner">
-      <img src="assets/merch-1.webp" alt="Merch" loading="lazy">
-      <img src="assets/merch-2.webp" alt="Merch" loading="lazy">
-      <img src="assets/merch-3.webp" alt="Merch" loading="lazy">
-      <img src="assets/merch-4.webp" alt="Merch" loading="lazy">
-      <img src="assets/merch-5.webp" alt="Merch" loading="lazy">
-      <img src="assets/merch-6.webp" alt="Merch" loading="lazy">
-      <img src="assets/merch-7.webp" alt="Merch" loading="lazy">
-      <img src="assets/merch-8.webp" alt="Merch" loading="lazy">
-      <img src="assets/merch-1.webp" alt="Merch" loading="lazy">
-      <img src="assets/merch-2.webp" alt="Merch" loading="lazy">
-      <img src="assets/merch-3.webp" alt="Merch" loading="lazy">
-      <img src="assets/merch-4.webp" alt="Merch" loading="lazy">
-      <img src="assets/merch-5.webp" alt="Merch" loading="lazy">
-      <img src="assets/merch-6.webp" alt="Merch" loading="lazy">
-      <img src="assets/merch-7.webp" alt="Merch" loading="lazy">
-      <img src="assets/merch-8.webp" alt="Merch" loading="lazy">
-    </div>
-  </section>
-
-  <!-- ========== ABOUT ========== -->
+  <!-- ========== ABOUT & TESTIMONIALS ========== -->
   <section class="about" id="about">
     <div class="container">
-      <div class="about-layout">
-        <div class="about-images anim-ready">
-          <img src="assets/about-team.webp" alt="BLP Team" class="about-main-img" loading="lazy">
-          <div class="about-imgs-row">
-            <img src="assets/about-1.webp" alt="Team at work" loading="lazy">
-            <img src="assets/about-2.webp" alt="Creative process" loading="lazy">
-          </div>
-          <div class="about-badges">
-            <img src="assets/wbenc-seal.webp" alt="WBENC Certified" class="about-seal" loading="lazy">
-            <img src="assets/counselor-badge.webp" alt="Counselor Award" class="about-seal" loading="lazy">
+      <div class="about-grid">
+        <div class="about-content anim-ready">
+          <h2 class="section-title">More Than Just a Vendor. <br>Your Brand Partner.</h2>
+          <p>We are a passionate crew that believes business should be fun, creative, and full of integrity. Headquartered in Dallas, TX, and serving brands nationwide.</p>
+          <div class="badges">
+            <img src="assets/wbenc-seal.webp" alt="WBENC Certified">
+            <img src="assets/counselor-badge.webp" alt="Counselor Award">
           </div>
         </div>
-        <div class="about-text anim-ready">
-          <span class="section-tag">About BLP</span>
-          <h2 class="section-title">We're not your typical promotional products company — we're your marketing and brand partner</h2>
-          <p>We are a passionate crew that believes business should be fun, creative, and full of integrity. From bold ideas to safe, sustainable solutions, we put our heart into every project and make the experience just as enjoyable as the results.</p>
-          <p><strong>Bob Lilly Promotions</strong> is proudly headquartered in Dallas, TX and serving brands nationwide. With 27 years of experience and a certified Women's Business Enterprise (WBENC) designation, we bring enterprise capability with a personal touch.</p>
-          <div class="about-highlights">
-            <div class="about-highlight">
-              <span class="ah-icon">🏆</span>
-              <div>
-                <strong>Award-Winning</strong>
-                <span>Counselor Magazine Top Distributor</span>
-              </div>
-            </div>
-            <div class="about-highlight">
-              <span class="ah-icon">♻️</span>
-              <div>
-                <strong>Sustainable</strong>
-                <span>Eco-friendly product options</span>
-              </div>
-            </div>
-            <div class="about-highlight">
-              <span class="ah-icon">🤝</span>
-              <div>
-                <strong>WBENC Certified</strong>
-                <span>Women-owned enterprise</span>
-              </div>
+        <div class="testimonial-card anim-ready">
+          <div class="quote-icon">"</div>
+          <p class="testimonial-text">After two subpar promo vendors, Bob Lilly Promotions has been a breath of fresh air! Their superior quality with consideration to our startup budget has been a 10 in my book!</p>
+          <div class="testimonial-author">
+            <div class="author-avatar"><img src="assets/testimonial-aaron.webp" alt="Aaron"></div>
+            <div>
+              <strong>Startup Founder</strong>
+              <span>Energy Industry</span>
             </div>
           </div>
-          <a href="#contact" class="btn btn-primary">Meet Our Team →</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== TESTIMONIALS ========== -->
-  <section class="testimonials" id="testimonials">
-    <div class="container">
-      <div class="section-header anim-ready">
-        <span class="section-tag">Testimonials</span>
-        <h2 class="section-title">What Our Clients Say</h2>
-        <p class="section-sub">Don't take our word for it — hear from the brands we've partnered with.</p>
-      </div>
-      <div class="testimonial-carousel-wrap">
-        <div class="testimonial-carousel" id="testimonialCarousel">
-          <div class="testimonial-slide active">
-            <div class="testimonial-card">
-              <div class="tc-stars">★★★★★</div>
-              <blockquote>"Bob Lilly Promotions has a talent for finding promotional products that are both cost-effective and memorable. Our target audience frequently responds with <em>wow, this is the best giveaway item I've ever received</em> — which says it all."</blockquote>
-              <div class="tc-author">
-                <img src="assets/testimonial-aaron.webp" alt="Aaron Kastner" loading="lazy">
-                <div>
-                  <strong>Aaron Kastner</strong>
-                  <span>Marketing Director</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="testimonial-slide">
-            <div class="testimonial-card">
-              <div class="tc-stars">★★★★★</div>
-              <blockquote>"Bob Lilly Promotions did an amazing job of pulling together the engagement package for us. It really got the MBA Bootcamp off to a great start!"</blockquote>
-              <div class="tc-author">
-                <img src="assets/testimonial-christina.webp" alt="Christina Juarez" loading="lazy">
-                <div>
-                  <strong>Christina Juarez</strong>
-                  <span>Program Manager</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="testimonial-slide">
-            <div class="testimonial-card">
-              <div class="tc-stars">★★★★★</div>
-              <blockquote>"BLP has been an excellent partner. We were excited to find a company that has the technical resources to integrate with our CRM and the operational capabilities to handle the entire process."</blockquote>
-              <div class="tc-author">
-                <img src="assets/testimonial-robert.webp" alt="Robert Rardin" loading="lazy">
-                <div>
-                  <strong>Robert Rardin</strong>
-                  <span>VP of Operations</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="testimonial-slide">
-            <div class="testimonial-card">
-              <div class="tc-stars">★★★★★</div>
-              <blockquote>"Bob Lilly Promotions supported my startup energy company from beginning to end. They really had amazing insight into building our brand, logo and message."</blockquote>
-              <div class="tc-author">
-                <img src="assets/testimonial-img.webp" alt="Client" loading="lazy">
-                <div>
-                  <strong>Startup Founder</strong>
-                  <span>Energy Industry</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="testimonial-slide">
-            <div class="testimonial-card">
-              <div class="tc-stars">★★★★★</div>
-              <blockquote>"We appreciate the collaboration and camaraderie we've developed with your group as Boardwalk Pipelines' company store provider. Truly outstanding customer service and partnership."</blockquote>
-              <div class="tc-author">
-                <img src="assets/testimonial-5.webp" alt="Boardwalk Team" loading="lazy">
-                <div>
-                  <strong>Boardwalk Pipelines</strong>
-                  <span>Operations Team</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="testimonial-slide">
-            <div class="testimonial-card">
-              <div class="tc-stars">★★★★★</div>
-              <blockquote>"BLP is our go-to resource for all of our branded promotional products and premium incentives. They offer great creativity and help us navigate problem spots."</blockquote>
-              <div class="tc-author">
-                <div class="tc-avatar-placeholder">★</div>
-                <div>
-                  <strong>Enterprise Client</strong>
-                  <span>Fortune 500 Company</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="testimonial-slide">
-            <div class="testimonial-card">
-              <div class="tc-stars">★★★★★</div>
-              <blockquote>"After two subpar promo vendors, Bob Lilly Promotions has been a breath of fresh air! Their superior quality with consideration to our startup budget has been a 10 in my book!"</blockquote>
-              <div class="tc-author">
-                <div class="tc-avatar-placeholder">★</div>
-                <div>
-                  <strong>Startup Client</strong>
-                  <span>New Business Owner</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="testimonial-controls">
-          <button class="tc-btn tc-prev" aria-label="Previous testimonial">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
-          </button>
-          <div class="tc-dots" id="tcDots"></div>
-          <button class="tc-btn tc-next" aria-label="Next testimonial">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </button>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========== VIDEO SECTION ========== -->
-  <section class="video-section" id="video">
-    <div class="container">
-      <div class="video-layout">
-        <div class="video-text anim-ready">
-          <span class="section-tag">Behind the Scenes</span>
-          <h2 class="section-title">Watch the magic happen</h2>
-          <p class="section-sub">From concept to merch drop — follow along as we bring brands to life. Explore our YouTube channel for behind-the-scenes looks, product showcases, and client stories.</p>
-          <a href="https://www.youtube.com/@BobLillyPromotions" class="btn btn-primary" target="_blank">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31.4 31.4 0 0 0 0 12a31.4 31.4 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31.4 31.4 0 0 0 24 12a31.4 31.4 0 0 0-.5-5.8zM9.6 15.6V8.4l6.3 3.6-6.3 3.6z"/></svg>
-            Visit Our YouTube Channel
-          </a>
-        </div>
-        <div class="video-thumbs anim-ready">
-          <a href="https://www.youtube.com/@BobLillyPromotions" class="video-thumb-card" target="_blank">
-            <img src="assets/video-thumb.webp" alt="BLP Video" loading="lazy">
-            <div class="play-overlay">
-              <div class="play-btn-circle">
-                <svg width="30" height="30" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg>
-              </div>
-            </div>
-          </a>
-          <a href="https://www.youtube.com/@BobLillyPromotions" class="video-thumb-card" target="_blank">
-            <img src="assets/video-thumb-2.webp" alt="BLP Video" loading="lazy">
-            <div class="play-overlay">
-              <div class="play-btn-circle">
-                <svg width="30" height="30" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg>
-              </div>
-            </div>
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========== BLOG / NEWS ========== -->
-  <section class="blog" id="blog">
-    <div class="container">
-      <div class="section-header anim-ready">
-        <span class="section-tag">Resources</span>
-        <h2 class="section-title">Brand Resources & Insights</h2>
-        <p class="section-sub">Latest articles, press releases, market research, and more from the BLP team.</p>
-      </div>
-      <div class="blog-grid">
-        <a href="#" class="blog-card anim-ready">
-          <div class="blog-img-wrap">
-            <img src="assets/blp-counselor.webp" alt="2026 Best Places to Work" loading="lazy">
-          </div>
-          <div class="blog-body">
-            <span class="blog-tag">Company News</span>
-            <h3>2026 Best Places to Work</h3>
-            <p>Bob Lilly Promotions recognized once again as one of the Best Places to Work in the promotional products industry.</p>
-            <span class="blog-read">Read Article →</span>
-          </div>
-        </a>
-        <a href="#" class="blog-card anim-ready">
-          <div class="blog-img-wrap">
-            <img src="assets/blog-news.webp" alt="27 Years in Business" loading="lazy">
-          </div>
-          <div class="blog-body">
-            <span class="blog-tag">Insights</span>
-            <h3>27 Years, Five Recessions, and the One Lesson That Never Changes</h3>
-            <p>How BLP navigated uncertainty and came out stronger — lessons from nearly three decades in business.</p>
-            <span class="blog-read">Read Article →</span>
-          </div>
-        </a>
-        <a href="#" class="blog-card anim-ready">
-          <div class="blog-img-wrap">
-            <img src="assets/roi-merch.webp" alt="ROI of Thoughtful Merch" loading="lazy">
-          </div>
-          <div class="blog-body">
-            <span class="blog-tag">Case Studies</span>
-            <h3>The ROI of Thoughtful Merch: 3 Client Stories</h3>
-            <p>How strategic merchandise programs deliver measurable returns — backed by three real-world examples.</p>
-            <span class="blog-read">Read Article →</span>
-          </div>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========== FULL-WIDTH CTA ========== -->
-  <section class="cta-section" id="contact">
-    <div class="cta-bg-wrap">
-      <img src="assets/cta-bg.webp" alt="" class="cta-bg-img" loading="lazy">
-      <div class="cta-overlay"></div>
-    </div>
-    <div class="container">
-      <div class="cta-content anim-ready">
-        <h2>Ready to strategize on your next project?</h2>
-        <p>Let's talk about what you need. We're not just a promotional products company. We're an extension of your marketing team.</p>
-        <div class="cta-btns">
-          <a href="#" class="btn btn-primary btn-lg">Get Started <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-          <a href="tel:2142312082" class="btn btn-outline-white btn-lg">📞 (214) 231-2082</a>
-        </div>
+  <!-- ========== CTA SECTION ========== -->
+  <section class="final-cta" id="contact">
+    <div class="container anim-ready">
+      <div class="cta-box">
+        <h2>Ready for a Breath of Fresh Air?</h2>
+        <p>Let's elevate your brand experience and build something incredible together.</p>
+        <a href="#" class="btn btn-primary btn-xl">Start Your Project Today</a>
       </div>
     </div>
   </section>
@@ -589,115 +217,54 @@
   <!-- ========== FOOTER ========== -->
   <footer class="footer">
     <div class="container">
-      <div class="footer-grid">
-        <div class="footer-brand">
-          <img src="assets/logo.webp" alt="Bob Lilly Promotions" class="footer-logo">
-          <p class="footer-address">4002 W Miller Rd., Ste.140<br>Garland, TX 75041</p>
-          <p class="footer-contact-info">
-            <a href="tel:2142312082">📞 (214) 231-2082</a><br>
-            <a href="mailto:freshideas@boblillypromo.com">✉️ freshideas@boblillypromo.com</a>
-          </p>
-          <div class="footer-socials">
-            <a href="#" aria-label="Facebook" class="social-link">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.1c0-6.6-5.4-12-12-12S0 5.5 0 12.1c0 6 4.4 10.9 10.1 11.8v-8.4H7.1v-3.4h3V9.6c0-3 1.8-4.6 4.5-4.6 1.3 0 2.7.2 2.7.2v2.9h-1.5c-1.5 0-2 .9-2 1.9v2.2h3.3l-.5 3.4h-2.8v8.4C19.6 23 24 18.1 24 12.1z"/></svg>
-            </a>
-            <a href="#" aria-label="Instagram" class="social-link">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.2c3.2 0 3.6 0 4.8.1 1.2.1 1.8.2 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1.1.4 2.2.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 1.2-.2 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1.1.4-2.2.4-1.3.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-1.2-.1-1.8-.2-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.4-1.1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.8c.1-1.2.2-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1.1-.4 2.2-.4C8.4 2.2 8.8 2.2 12 2.2zM12 0C8.7 0 8.3 0 7.1.1 5.8.1 4.9.3 4.1.6c-.8.3-1.5.7-2.1 1.3C1.3 2.6.9 3.3.6 4.1.3 4.9.1 5.8.1 7.1 0 8.3 0 8.7 0 12s0 3.7.1 4.9c0 1.3.2 2.2.5 3 .3.8.7 1.5 1.3 2.1.7.7 1.3 1.1 2.1 1.3.8.3 1.7.5 3 .5C8.3 24 8.7 24 12 24s3.7 0 4.9-.1c1.3 0 2.2-.2 3-.5.8-.3 1.5-.7 2.1-1.3.7-.7 1.1-1.3 1.3-2.1.3-.8.5-1.7.5-3 .1-1.2.1-1.6.1-4.9s0-3.7-.1-4.9c0-1.3-.2-2.2-.5-3-.3-.8-.7-1.5-1.3-2.1C21.4 1.3 20.7.9 19.9.6c-.8-.3-1.7-.5-3-.5C15.7 0 15.3 0 12 0zm0 5.8a6.2 6.2 0 100 12.4 6.2 6.2 0 000-12.4zM12 16a4 4 0 110-8 4 4 0 010 8zm6.4-10.8a1.4 1.4 0 100 2.8 1.4 1.4 0 000-2.8z"/></svg>
-            </a>
-            <a href="#" aria-label="LinkedIn" class="social-link">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.4 20.5h-3.6v-5.6c0-1.3 0-3-1.8-3-1.9 0-2.1 1.4-2.1 2.9v5.7H9.3V9h3.4v1.6h.1c.5-.9 1.6-1.8 3.4-1.8 3.6 0 4.3 2.4 4.3 5.5v6.2zM5.3 7.4a2.1 2.1 0 110-4.2 2.1 2.1 0 010 4.2zM7.1 20.5H3.5V9h3.6v11.5zM22.2 0H1.8C.8 0 0 .8 0 1.8v20.4c0 1 .8 1.8 1.8 1.8h20.4c1 0 1.8-.8 1.8-1.8V1.8c0-1-.8-1.8-1.8-1.8z"/></svg>
-            </a>
-            <a href="https://www.youtube.com/@BobLillyPromotions" aria-label="YouTube" class="social-link" target="_blank">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31.4 31.4 0 0 0 0 12a31.4 31.4 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31.4 31.4 0 0 0 24 12a31.4 31.4 0 0 0-.5-5.8zM9.6 15.6V8.4l6.3 3.6-6.3 3.6z"/></svg>
-            </a>
-          </div>
-          <img src="assets/wbenc-seal.webp" alt="WBENC Certified" class="footer-wbenc">
-        </div>
-        <div class="footer-col">
-          <h4>Services</h4>
-          <ul>
-            <li><a href="#">Branded Merch</a></li>
-            <li><a href="#">Online Company Stores</a></li>
-            <li><a href="#">Creative & Design</a></li>
-            <li><a href="#">Print & Packaging</a></li>
-            <li><a href="#">Loyalty & Incentives</a></li>
-            <li><a href="#">Awards & Recognition</a></li>
-            <li><a href="#">Marketing & Strategy</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4>Markets</h4>
-          <ul>
-            <li><a href="#">Healthcare</a></li>
-            <li><a href="#">Financial Services</a></li>
-            <li><a href="#">Technology</a></li>
-            <li><a href="#">Energy & Utilities</a></li>
-            <li><a href="#">Hospitality</a></li>
-            <li><a href="#">Non-Profit</a></li>
-            <li><a href="#">Startups</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4>Company</h4>
-          <ul>
-            <li><a href="#">About Us</a></li>
-            <li><a href="#">Our Team</a></li>
-            <li><a href="#">Case Studies</a></li>
-            <li><a href="#">Blog & Resources</a></li>
-            <li><a href="#">Careers</a></li>
-            <li><a href="#">Contact</a></li>
-          </ul>
+      <div class="footer-top">
+        <img src="assets/logo.webp" alt="Bob Lilly Promotions" class="footer-logo">
+        <div class="footer-links">
+          <a href="#services">Services</a>
+          <a href="#case-studies">Work</a>
+          <a href="#about">About</a>
+          <a href="tel:2142312082">📞 (214) 231-2082</a>
         </div>
       </div>
       <div class="footer-bottom">
         <p>© 2026 Bob Lilly Promotions. All rights reserved.</p>
-        <div class="footer-bottom-links">
-          <a href="#">Privacy Policy</a>
-          <a href="#">Terms of Service</a>
-          <a href="#">Sitemap</a>
-        </div>
+        <p>Crafted with care.</p>
       </div>
     </div>
   </footer>
 
-  <!-- ========== PAYWALL MODAL ========== -->
+  <!-- ========== AWESOME PAYWALL MODAL ========== -->
   <div class="paywall-overlay" id="paywallOverlay">
+    <div class="paywall-vanta" id="paywall-vanta"></div>
     <div class="paywall-modal" id="paywallModal">
       <button class="paywall-close" id="paywallClose" aria-label="Close modal">✕</button>
-      <div class="paywall-header">
-        <div class="paywall-icon">🛑</div>
-        <h2>Hold Your Horses, Cowboy.</h2>
-        <p>You've reached the <strong>Bob Lilly Premium Paywall™</strong>. This stunning website experience was crafted by <strong>Thomas Harden</strong>.</p>
+      <div class="paywall-content">
+        <div class="paywall-icon">🤑</div>
+        <h2>Wait Just a Minute...</h2>
+        <p class="paywall-joke-main">
+          Thomas Harden spent hundreds of hours meticulously crafting this stunning visual experience. 
+        </p>
+        
+        <div class="pricing-cards">
+          <div class="price-card">
+            <h4>Option A: Retainer</h4>
+            <div class="price">$100<span>/mo</span></div>
+            <p>Retain my world-class development skills indefinitely.</p>
+            <button class="btn btn-primary pay-btn" data-type="retainer">Select Option A</button>
+          </div>
+          <div class="price-card highlight">
+            <h4>Option B: Buyout</h4>
+            <div class="price">$400<span> flat</span></div>
+            <p>Buy this website fully built out to Bob's exact specs.</p>
+            <button class="btn btn-primary pay-btn" data-type="buyout">Select Option B</button>
+          </div>
+        </div>
+
+        <p class="paywall-footer-joke">
+          How much is his time worth? Before you click that link, the developer requires his tribute. 
+        </p>
+        <div class="paywall-result" id="paywallResult"></div>
       </div>
-      <div class="paywall-invoice">
-        <div class="invoice-header">
-          <span>INVOICE</span>
-          <span class="invoice-number">#TH-2026-001</span>
-        </div>
-        <div class="invoice-row">
-          <span>Current Status:</span>
-          <span class="invoice-unpaid">UNPAID</span>
-        </div>
-        <div class="invoice-row">
-          <span>Developer:</span>
-          <span>Thomas Harden</span>
-        </div>
-        <div class="invoice-row">
-          <span>Service:</span>
-          <span>Premium Website Build</span>
-        </div>
-        <div class="invoice-divider"></div>
-        <div class="invoice-row invoice-total">
-          <span>Total Due to Unlock:</span>
-          <span class="invoice-amount">$One Million Dollars</span>
-        </div>
-      </div>
-      <p class="paywall-joke">Before you can click that link and explore further, the developer requires his tribute. <strong>Venmo, Wire Transfer, or a lifetime supply of Cowboys tickets</strong> accepted.</p>
-      <div class="paywall-actions">
-        <button class="btn btn-primary paywall-pay-btn" id="paywallPayBtn">💰 Pay Thomas Harden</button>
-        <button class="btn btn-outline paywall-close-btn" id="paywallAdmireBtn">I'll Just Admire the Homepage</button>
-      </div>
-      <div class="paywall-result" id="paywallResult"></div>
     </div>
   </div>
 
