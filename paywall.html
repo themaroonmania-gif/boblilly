@@ -38,7 +38,14 @@
     }
     .header {
       text-align: center;
-      padding: 30px 20px;
+      padding: 40px 30px;
+      margin: 40px auto 20px;
+      max-width: 800px;
+      background: rgba(0, 0, 0, 0.85);
+      border: 2px solid var(--arcade-green);
+      border-radius: 20px;
+      box-shadow: 0 0 40px rgba(0,0,0,1), inset 0 0 20px rgba(57,255,20,0.1);
+      backdrop-filter: blur(8px);
       z-index: 999999;
       position: relative;
     }
@@ -50,12 +57,13 @@
     }
     .message {
       font-family: 'Syne', sans-serif;
-      font-size: 1.2rem;
+      font-size: 1.3rem;
       max-width: 800px;
       margin: 0 auto 30px;
       line-height: 1.6;
       font-weight: 600;
-      color: #E0E0E0;
+      color: #FFFFFF;
+      text-shadow: 1px 1px 3px #000;
     }
     .message strong {
       color: var(--arcade-green);
@@ -294,20 +302,7 @@
 </html>
 
 <style>
-  @keyframes shake {
-    0% { transform: translate(1px, 1px) rotate(0deg); }
-    10% { transform: translate(-1px, -2px) rotate(-1deg); }
-    20% { transform: translate(-3px, 0px) rotate(1deg); }
-    30% { transform: translate(3px, 2px) rotate(0deg); }
-    40% { transform: translate(1px, -1px) rotate(1deg); }
-    50% { transform: translate(-1px, 2px) rotate(-1deg); }
-    60% { transform: translate(-3px, 1px) rotate(0deg); }
-    70% { transform: translate(3px, 1px) rotate(-1deg); }
-    80% { transform: translate(-1px, -1px) rotate(1deg); }
-    90% { transform: translate(1px, 2px) rotate(0deg); }
-    100% { transform: translate(1px, -2px) rotate(-1deg); }
-  }
-  .header h1:hover { animation: shake 0.5s infinite; cursor: crosshair; }
+  .header h1:hover { text-shadow: 0 0 20px var(--arcade-red); cursor: crosshair; }
   
   @keyframes neon-flash {
     0%, 100% { text-shadow: 2px 2px 0 #000, 4px 4px 0 rgba(255,0,85,0.5); }
