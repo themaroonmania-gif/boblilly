@@ -166,8 +166,8 @@
     const ballSize = 10;
 
     const player = { x: 20, y: canvas.height/2 - paddleHeight/2, w: paddleWidth, h: paddleHeight, score: 0 };
-    const ai = { x: canvas.width - 30, y: canvas.height/2 - paddleHeight/2, w: paddleWidth, h: paddleHeight, dy: 4, score: 0 };
-    const ball = { x: canvas.width/2, y: canvas.height/2, w: ballSize, h: ballSize, dx: 5, dy: 5 };
+    const ai = { x: canvas.width - 30, y: canvas.height/2 - paddleHeight/2, w: paddleWidth, h: paddleHeight, dy: 2.5, score: 0 };
+    const ball = { x: canvas.width/2, y: canvas.height/2, w: ballSize, h: ballSize, dx: 3, dy: 3 };
 
     // Mouse and Touch Controls
     function setPlayerPos(e) {
@@ -197,8 +197,8 @@
     function resetBall() {
       ball.x = canvas.width / 2;
       ball.y = canvas.height / 2;
-      ball.dx = (ball.dx > 0 ? -5 : 5);
-      ball.dy = (Math.random() > 0.5 ? 5 : -5);
+      ball.dx = (ball.dx > 0 ? -3 : 3);
+      ball.dy = (Math.random() > 0.5 ? 3 : -3);
     }
 
     function update() {
@@ -225,7 +225,7 @@
       let hitAi = (ball.x + ball.w >= ai.x && ball.y + ball.h >= ai.y && ball.y <= ai.y + ai.h);
 
       if(hitPlayer || hitAi) {
-        ball.dx *= -1.05; // increase speed slightly
+        ball.dx *= -1.02; // increase speed slightly
         if(hitPlayer) {
           let hitPoint = ball.y - (player.y + player.h/2);
           ball.dy = hitPoint * 0.15;

@@ -1711,3 +1711,58 @@ h1, h2, h3, h4, h5, h6, .section-title {
   }
 }
 
+
+/* ========== FLOATING CHARACTER ========== */
+.floating-mario-wrap {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  z-index: 9999;
+  display: flex;
+  align-items: flex-end;
+  gap: 10px;
+  animation: bounceFloat 2s ease-in-out infinite;
+  cursor: pointer;
+}
+.floating-mario-wrap:hover {
+  transform: scale(1.05);
+}
+.speech-bubble {
+  background: #FFF;
+  color: #000;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 0.7rem;
+  padding: 12px 16px;
+  border-radius: 12px;
+  position: relative;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  line-height: 1.4;
+  border: 2px solid #000;
+}
+.speech-bubble::after {
+  content: "";
+  position: absolute;
+  bottom: 10px;
+  left: -8px;
+  border-width: 8px 8px 8px 0;
+  border-style: solid;
+  border-color: transparent #FFF transparent transparent;
+}
+.speech-bubble::before {
+  content: "";
+  position: absolute;
+  bottom: 8px;
+  left: -11px;
+  border-width: 10px 10px 10px 0;
+  border-style: solid;
+  border-color: transparent #000 transparent transparent;
+}
+.mario-sprite {
+  font-size: 2.5rem;
+  line-height: 1;
+}
+@keyframes bounceFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+

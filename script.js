@@ -321,3 +321,68 @@ document.addEventListener('DOMContentLoaded', () => {
   sections.forEach(section => sectionObserver.observe(section));
 
 });
+
+  // ========== CURSOR TRAIL EFFECT (Lindelof style) ==========
+  const cursorCanvas = document.createElement("canvas");
+  cursorCanvas.style.position = "fixed";
+  cursorCanvas.style.top = "0";
+  cursorCanvas.style.left = "0";
+  cursorCanvas.style.width = "100%";
+  cursorCanvas.style.height = "100%";
+  cursorCanvas.style.pointerEvents = "none";
+  cursorCanvas.style.zIndex = "999998";
+  document.body.appendChild(cursorCanvas);
+
+  const ctxTrail = cursorCanvas.getContext("2d");
+  let trail = [];
+  let mouse = { x: 0, y: 0 };
+
+  window.addEventListener("mousemove", (e) => {
+    mouse.x = e.clientX;
+    mouse.y = e.clientY;
+    trail.push({ x: mouse.x, y: mouse.y, age: 0 });
+  });
+
+  window.addEventListener("resize", () => {
+    cursorCanvas.width = window.innerWidth;
+    cursorCanvas.height = window.innerHeight;
+  });
+  cursorCanvas.width = window.innerWidth;
+  cursorCanvas.height = window.innerHeight;
+
+  function drawTrail() {
+    ctxTrail.clearRect(0, 0, cursorCanvas.width, cursorCanvas.height);
+    
+    if (trail.length > 0) {
+      ctxTrail.beginPath();
+      ctxTrail.moveTo(trail[0].x, trail[0].y);
+      for (let i = 1; i < trail.length; i++) {
+        const point = trail[i];
+        ctxTrail.lineTo(point.x, point.y);
+      }
+      
+      const gradient = ctxTrail.createLinearGradient(0, 0, cursorCanvas.width, cursorCanvas.height);
+      gradient.addColorStop(0, "#FF552F");
+      gradient.addColorStop(0.5, "#FFD54F");
+      gradient.addColorStop(1, "#0072D2");
+      
+      ctxTrail.strokeStyle = gradient;
+      ctxTrail.lineWidth = 4;
+      ctxTrail.lineCap = "round";
+      ctxTrail.lineJoin = "round";
+      ctxTrail.globalAlpha = 0.6;
+      ctxTrail.stroke();
+    }
+    
+    for (let i = 0; i < trail.length; i++) {
+      trail[i].age++;
+      if (trail[i].age > 30) {
+        trail.splice(i, 1);
+        i--;
+      }
+    }
+    
+    requestAnimationFrame(drawTrail);
+  }
+  drawTrail();
+
