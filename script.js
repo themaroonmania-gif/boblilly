@@ -46,28 +46,48 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 3. Canvas Click Particles (Lindelof)
+  // 3. Canvas Click Particles (Lindelof style)
   class Particle {
     constructor(x, y) {
       this.x = x;
       this.y = y;
-      this.size = Math.random() * 5 + 2;
-      this.speedX = Math.random() * 6 - 3;
-      this.speedY = Math.random() * 6 - 3;
-      this.color = ['#FF552F', '#0072D2', '#07141E', '#FF8A65'][Math.floor(Math.random() * 4)];
+      this.size = Math.random() * 6 + 3;
+      const angle = Math.random() * Math.PI * 2;
+      const velocity = Math.random() * 8 + 2;
+      this.speedX = Math.cos(angle) * velocity;
+      this.speedY = Math.sin(angle) * velocity;
+      this.gravity = 0.4;
+      this.friction = 0.95;
+      this.color = ['#FF552F', '#0072D2', '#FFD54F', '#07141E'][Math.floor(Math.random() * 4)];
       this.life = 1;
+      this.shape = Math.random() > 0.5 ? 'circle' : 'square';
+      this.rotation = Math.random() * 360;
+      this.rotSpeed = (Math.random() - 0.5) * 10;
     }
     update() {
+      this.speedY += this.gravity;
+      this.speedX *= this.friction;
+      this.speedY *= this.friction;
       this.x += this.speedX;
       this.y += this.speedY;
-      this.size *= 0.95;
-      this.life -= 0.02;
+      this.size *= 0.96;
+      this.life -= 0.03;
+      this.rotation += this.rotSpeed;
     }
     draw(ctx) {
+      ctx.save();
+      ctx.translate(this.x, this.y);
+      ctx.rotate((this.rotation * Math.PI) / 180);
       ctx.fillStyle = this.color;
+      ctx.globalAlpha = Math.max(0, this.life);
       ctx.beginPath();
-      ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-      ctx.fill();
+      if (this.shape === 'circle') {
+        ctx.arc(0, 0, this.size, 0, Math.PI * 2);
+        ctx.fill();
+      } else {
+        ctx.fillRect(-this.size / 2, -this.size / 2, this.size, this.size);
+      }
+      ctx.restore();
     }
   }
 
@@ -78,7 +98,7 @@ document.addEventListener('DOMContentLoaded', () => {
   canvas.style.width = '100%';
   canvas.style.height = '100%';
   canvas.style.pointerEvents = 'none';
-  canvas.style.zIndex = '99999';
+  canvas.style.zIndex = '999999';
   document.body.appendChild(canvas);
 
   const ctx = canvas.getContext('2d');
@@ -106,7 +126,8 @@ document.addEventListener('DOMContentLoaded', () => {
   animateParticles();
 
   document.addEventListener('click', (e) => {
-    for (let i = 0; i < 20; i++) {
+    // Burst of 30 particles on click
+    for (let i = 0; i < 35; i++) {
       particles.push(new Particle(e.clientX, e.clientY));
     }
   });
