@@ -1,341 +1,312 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bob Lilly Premium Paywall</title>
-  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Syne:wght@400..800&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --arcade-green: #39FF14;
-      --arcade-red: #FF0055;
-      --arcade-blue: #00FFFF;
-    }
-    body {
-      margin: 0;
-      padding: 0;
-      background: #000;
-      color: #FFF;
-      font-family: 'Press Start 2P', monospace;
-      overflow-x: hidden;
-      overflow-y: auto;
-      display: flex;
-      flex-direction: column;
-      height: 100vh;
-    }
-    .crt::before {
-      content: " ";
-      display: block;
-      position: fixed;
-      top: 0;
-      left: 0;
-      bottom: 0;
-      right: 0;
-      background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
-      z-index: 2;
-      background-size: 100% 2px, 3px 100%;
-      pointer-events: none;
-    }
-    .header {
-      text-align: center;
-      padding: 40px 30px;
-      margin: 40px auto 20px;
-      max-width: 800px;
-      background: rgba(0, 0, 0, 0.85);
-      border: 2px solid var(--arcade-green);
-      border-radius: 20px;
-      box-shadow: 0 0 40px rgba(0,0,0,1), inset 0 0 20px rgba(57,255,20,0.1);
-      backdrop-filter: blur(8px);
-      z-index: 999999;
-      position: relative;
-    }
-    h1 {
-      font-size: 2rem;
-      color: var(--arcade-red);
-      text-shadow: 2px 2px 0 #000, 4px 4px 0 rgba(255,0,85,0.5);
-      margin-bottom: 20px;
-    }
-    .message {
-      font-family: 'Syne', sans-serif;
-      font-size: 1.3rem;
-      max-width: 800px;
-      margin: 0 auto 30px;
-      line-height: 1.6;
-      font-weight: 600;
-      color: #FFFFFF;
-      text-shadow: 1px 1px 3px #000;
-    }
-    .message strong {
-      color: var(--arcade-green);
-    }
-    .options {
-      display: flex;
-      justify-content: center;
-      gap: 30px;
-      margin-bottom: 20px;
-      position: relative;
-      z-index: 999999;
-    }
-    .arcade-btn {
-      background: transparent;
-      border: 4px solid var(--arcade-blue);
-      color: var(--arcade-blue);
-      font-family: 'Press Start 2P', monospace;
-      padding: 15px 30px;
-      font-size: 1rem;
-      cursor: pointer;
-      text-decoration: none;
-      transition: 0.2s;
-      box-shadow: 0 0 15px rgba(0,255,255,0.3), inset 0 0 15px rgba(0,255,255,0.3);
-    }
-    .arcade-btn:hover {
-      background: var(--arcade-blue);
-      color: #000;
-      box-shadow: 0 0 30px rgba(0,255,255,0.8), inset 0 0 30px rgba(0,255,255,0.8);
-    }
-    .arcade-btn.btn-red {
-      border-color: var(--arcade-red);
-      color: var(--arcade-red);
-      box-shadow: 0 0 15px rgba(255,0,85,0.3), inset 0 0 15px rgba(255,0,85,0.3);
-    }
-    .arcade-btn.btn-red:hover {
-      background: var(--arcade-red);
-      color: #000;
-      box-shadow: 0 0 30px rgba(255,0,85,0.8), inset 0 0 30px rgba(255,0,85,0.8);
-    }
-    .game-container {
-      flex: 1;
-      position: relative;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 10;
-      min-height: 450px;
-      padding-bottom: 40px;
-    }
-    canvas {
-      border: 4px solid #333;
-      background: #111;
-      box-shadow: 0 0 50px rgba(57, 255, 20, 0.2);
-      width: 100%;
-      max-width: 800px;
-      touch-action: none;
-      cursor: none;
-    }
-    .instructions {
-      text-align: center;
-      font-size: 0.7rem;
-      color: #888;
-      margin-top: 10px;
-    }
-    .back-link {
-      position: absolute;
-      top: 20px;
-      left: 20px;
-      color: #888;
-      text-decoration: none;
-      font-size: 0.8rem;
-      z-index: 999999;
-    }
-    .back-link:hover {
-      color: #FFF;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Fine Print — Bob Lilly Promotions Concept</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="icon" type="image/webp" href="assets/logo.webp">
+<style>
+:root {
+  --navy: #07141E;
+  --navy-2: #0B1E2D;
+  --orange: #FF552F;
+  --orange-2: #E54D2B;
+  --mist: #EDF2F6;
+  --white-soft: rgba(255,255,255,.72);
+  --line-light: rgba(255,255,255,.12);
+  --display: 'Archivo','Inter',sans-serif;
+  --ease: cubic-bezier(.22,.61,.36,1);
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+  font-family: 'Inter', sans-serif;
+  background:
+    radial-gradient(ellipse 60% 50% at 80% -10%, rgba(255,85,47,.16), transparent 60%),
+    radial-gradient(ellipse 50% 40% at 10% 110%, rgba(0,114,210,.12), transparent 60%),
+    var(--navy);
+  color: #fff;
+  min-height: 100vh;
+  line-height: 1.6;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 96px 20px 80px;
+  overflow-x: hidden;
+}
+a { color: inherit; }
+
+.back {
+  position: fixed;
+  top: 22px;
+  left: 24px;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--white-soft);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid var(--line-light);
+  border-radius: 999px;
+  padding: 10px 18px;
+  transition: all .3s var(--ease);
+  z-index: 10;
+  background: rgba(7,20,30,.6);
+  backdrop-filter: blur(8px);
+}
+.back:hover { color:#fff; border-color:#fff; }
+
+.wrap { max-width: 860px; width: 100%; text-align: center; }
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--white-soft);
+  border: 1px solid var(--line-light);
+  border-radius: 999px;
+  padding: 9px 18px;
+  margin-bottom: 30px;
+}
+.badge i {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: var(--orange);
+  font-style: normal;
+  animation: blink 1.6s infinite;
+}
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:.3} }
+
+h1 {
+  font-family: var(--display);
+  font-weight: 900;
+  font-size: clamp(36px, 6vw, 64px);
+  line-height: 1;
+  letter-spacing: -.02em;
+  text-transform: uppercase;
+  margin-bottom: 26px;
+}
+h1 span { color: var(--orange); }
+
+.lede {
+  font-size: clamp(16px, 1.8vw, 19px);
+  color: var(--white-soft);
+  max-width: 62ch;
+  margin: 0 auto 14px;
+}
+.lede strong { color: #fff; }
+.fine {
+  font-size: 13.5px;
+  color: rgba(255,255,255,.45);
+  margin-bottom: 54px;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+  text-align: left;
+  margin-bottom: 34px;
+}
+.card {
+  background: var(--navy-2);
+  border: 1px solid var(--line-light);
+  border-radius: 20px;
+  padding: 34px 30px;
+  position: relative;
+  transition: transform .35s var(--ease), border-color .35s;
+  display: flex;
+  flex-direction: column;
+}
+.card:hover { transform: translateY(-6px); border-color: rgba(255,255,255,.28); }
+.card.featured { border-color: var(--orange); }
+.card .flag {
+  position: absolute;
+  top: -13px;
+  left: 28px;
+  background: var(--orange);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  border-radius: 999px;
+  padding: 5px 14px;
+}
+.card h2 {
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: 21px;
+  text-transform: uppercase;
+  letter-spacing: -.01em;
+  margin-bottom: 6px;
+}
+.price {
+  font-family: var(--display);
+  font-weight: 900;
+  font-size: 44px;
+  letter-spacing: -.02em;
+  margin-bottom: 4px;
+}
+.price small { font-size: 16px; font-weight: 600; color: var(--white-soft); }
+.card > p { font-size: 14.5px; color: var(--white-soft); margin-bottom: 20px; }
+.card ul { list-style: none; margin-bottom: 28px; flex: 1; }
+.card li {
+  font-size: 14px;
+  color: var(--white-soft);
+  padding: 7px 0 7px 26px;
+  position: relative;
+}
+.card li::before {
+  content: "";
+  position: absolute;
+  left: 2px;
+  top: 13px;
+  width: 8px; height: 5px;
+  border-left: 2px solid var(--orange);
+  border-bottom: 2px solid var(--orange);
+  transform: rotate(-45deg);
+}
+.cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  font-weight: 700;
+  font-size: 15px;
+  text-decoration: none;
+  border-radius: 999px;
+  padding: 15px 26px;
+  transition: all .3s var(--ease);
+}
+.cta-solid { background: var(--orange); color: #fff; box-shadow: 0 12px 32px -10px rgba(255,85,47,.55); }
+.cta-solid:hover { background: var(--orange-2); transform: translateY(-2px); }
+.cta-line { border: 1.5px solid var(--line-light); color: #fff; }
+.cta-line:hover { border-color: #fff; transform: translateY(-2px); }
+
+.think-wrap { min-height: 64px; position: relative; margin-bottom: 40px; }
+#thinkBtn {
+  font-family: inherit;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--white-soft);
+  background: none;
+  border: 1px solid var(--line-light);
+  border-radius: 999px;
+  padding: 12px 22px;
+  cursor: pointer;
+  transition: left .35s var(--ease), top .35s var(--ease), color .3s;
+  position: relative;
+}
+#thinkBtn:hover { color: #fff; }
+#thinkNote {
+  display: block;
+  font-size: 12.5px;
+  color: rgba(255,255,255,.4);
+  margin-top: 12px;
+  min-height: 18px;
+}
+
+.ps {
+  border-top: 1px solid var(--line-light);
+  padding-top: 30px;
+  font-size: 13.5px;
+  color: rgba(255,255,255,.45);
+  max-width: 58ch;
+  margin: 0 auto;
+}
+.ps a { color: var(--white-soft); }
+.ps a:hover { color: #fff; }
+
+@media (max-width: 720px) {
+  body { padding-top: 84px; }
+  .cards { grid-template-columns: 1fr; }
+  .back { top: 14px; left: 14px; }
+}
+</style>
 </head>
-<body class="crt">
-  <canvas id="matrix" style="position:fixed;top:0;left:0;width:100%;height:100%;z-index:1;pointer-events:none;"></canvas>
-  <button onclick="window.location.href='index.html'" class="back-link" style="background:transparent; border:none; pointer-events:all; cursor:pointer; font-family:inherit;">&lt; GO BACK TO ADMIRING</button>
-  <div class="header">
-    <h1>HOLD YOUR HORSES.</h1>
-    <div class="message">
-      You spent <strong>hundreds of hours</strong> building your current site. I spent <strong>1 hour</strong> making this one, with zero resources except what I could take from your site.<br>
-      <span style="font-size: 0.8rem; color: #888;">(Also, I couldn't find the video from your site to put in the background, so you get Pong instead).</span><br><br>
-      <strong>Imagine what we could build if we worked together?</strong>
+<body>
+
+<a class="back" href="index.html">&larr; Back to admiring the concept</a>
+
+<div class="wrap">
+  <div class="badge"><i></i>You found the fine print</div>
+
+  <h1>This is the part where I <span>level with you</span>.</h1>
+
+  <p class="lede">Everything you just scrolled through was built from scratch as a free concept &mdash; using nothing but what&rsquo;s already public on your site. You put <strong>hundreds of hours</strong> into your current site. This one took me an afternoon. That&rsquo;s not a knock on you &mdash; it&rsquo;s the whole pitch: <strong>imagine what happens when those hundreds of hours go back to running Bob Lilly Promotions.</strong></p>
+  <p class="fine">(I also couldn&rsquo;t find the hero video from your real site, so the concept gets a still photo. Consider it a placeholder, not a design opinion.)</p>
+
+  <div class="cards">
+    <div class="card featured">
+      <span class="flag">The smart money</span>
+      <h2>The Retainer</h2>
+      <div class="price">$100<small>/mo</small></div>
+      <p>I become the guy who keeps your site sharp, so it stops eating your evenings.</p>
+      <ul>
+        <li>Tweaks, fixes, and updates handled same-week</li>
+        <li>The &ldquo;small stuff&rdquo; from my emails &mdash; done in afternoons</li>
+        <li>Performance and page-weight kept in check</li>
+        <li>No meetings unless you want them</li>
+        <li>Cancel anytime, zero hard feelings</li>
+      </ul>
+      <a class="cta cta-solid" href="mailto:thomas@thomasharden.com?subject=Let&rsquo;s%20do%20the%20retainer">Let&rsquo;s do it &rarr;</a>
     </div>
-    <div class="options">
-      <a href="mailto:thomas@thomasharden.com?subject=I%20love%20it!" class="arcade-btn">RETAINER ($100/mo)</a>
-      <a href="mailto:thomas@thomasharden.com?subject=I%20love%20it!" class="arcade-btn btn-red">BUYOUT ($400 FLAT)</a>
+    <div class="card">
+      <h2>The Buyout</h2>
+      <div class="price">$400<small> flat</small></div>
+      <p>This entire concept &mdash; code, design, everything &mdash; handed over. Yours to keep, host, or hand to your team.</p>
+      <ul>
+        <li>Full source code, no strings</li>
+        <li>One round of revisions included</li>
+        <li>Walkthrough call so nothing is a mystery</li>
+        <li>I disappear gracefully</li>
+      </ul>
+      <a class="cta cta-line" href="mailto:thomas@thomasharden.com?subject=I&rsquo;ll%20take%20the%20buyout">Take it all &rarr;</a>
     </div>
-    <div class="instructions">Before you can click that link, the developer requires his tribute. Play a game while you think about it.</div>
   </div>
 
-  <div class="game-container">
-    <canvas id="gameCanvas" width="800" height="400"></canvas>
+  <div class="think-wrap">
+    <button id="thinkBtn" type="button">Let me think about it</button>
+    <span id="thinkNote"></span>
   </div>
 
-  <script>
-    // ========== MATRIX RAIN BACKGROUND ==========
-    const matrixCanvas = document.getElementById('matrix');
-    const mctx = matrixCanvas.getContext('2d');
-    matrixCanvas.width = window.innerWidth;
-    matrixCanvas.height = window.innerHeight;
-    const chars = '01010101010101HOLDYOURHORSESPAYTHEDEVELOPER'.split('');
-    const fontSize = 14;
-    const columns = matrixCanvas.width / fontSize;
-    const drops = [];
-    for(let x = 0; x < columns; x++) drops[x] = 1;
-    function drawMatrix() {
-      mctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
-      mctx.fillRect(0, 0, matrixCanvas.width, matrixCanvas.height);
-      mctx.fillStyle = '#0F0';
-      mctx.font = fontSize + 'px monospace';
-      for(let i = 0; i < drops.length; i++) {
-        const text = chars[Math.floor(Math.random() * chars.length)];
-        mctx.fillText(text, i * fontSize, drops[i] * fontSize);
-        if(drops[i] * fontSize > matrixCanvas.height && Math.random() > 0.975) drops[i] = 0;
-        drops[i]++;
-      }
+  <p class="ps">P.S. &mdash; No pressure either way. The concept stays free, the opinions stay honest, and the phone number stays the same: <a href="mailto:thomas@thomasharden.com">thomas@thomasharden.com</a>. &mdash; Thomas Harden, Web Developer, Dallas TX</p>
+</div>
+
+<script>
+// The classic: the "think about it" button plays hard to get — twice.
+(function () {
+  const btn = document.getElementById('thinkBtn');
+  const note = document.getElementById('thinkNote');
+  let dodges = 0;
+  const dodge = () => {
+    dodges++;
+    if (dodges === 1) {
+      btn.style.transform = 'translateX(120px)';
+      note.textContent = 'Hmm.';
+    } else if (dodges === 2) {
+      btn.style.transform = 'translateX(-120px)';
+      note.textContent = 'It really is only $100.';
     }
-    setInterval(drawMatrix, 33);
-    window.addEventListener('resize', () => {
-      matrixCanvas.width = window.innerWidth;
-      matrixCanvas.height = window.innerHeight;
-      const newColumns = Math.floor(matrixCanvas.width / fontSize);
-      while(drops.length < newColumns) drops.push(1);
-    });
-
-
-
-    // ========== PONG ARCADE GAME ==========
-    const canvas = document.getElementById('gameCanvas');
-    const ctx = canvas.getContext('2d');
-    const container = document.querySelector('.game-container');
-
-    let gameState = 'START';
-
-    function resize() {
-      canvas.width = Math.min(800, container.clientWidth - 40);
-      canvas.height = Math.min(400, container.clientHeight - 40);
-    }
-    window.addEventListener('resize', resize);
-    resize();
-
-    const paddleWidth = 10, paddleHeight = 80;
-    const ballSize = 10;
-    const player = { x: 20, y: canvas.height/2 - paddleHeight/2, w: paddleWidth, h: paddleHeight, score: 0 };
-    const ai = { x: canvas.width - 30, y: canvas.height/2 - paddleHeight/2, w: paddleWidth, h: paddleHeight, dy: 2.5, score: 0 };
-    const ball = { x: canvas.width/2, y: canvas.height/2, w: ballSize, h: ballSize, dx: 3, dy: 3 };
-
-    function setPlayerPos(e) {
-      if(gameState !== 'PLAYING') return;
-      let rect = canvas.getBoundingClientRect();
-      let clientY = e.touches ? e.touches[0].clientY : e.clientY;
-      let scaleY = canvas.height / rect.height;
-      let mouseY = (clientY - rect.top) * scaleY;
-      player.y = mouseY - player.h / 2;
-      if (player.y < 0) player.y = 0;
-      if (player.y + player.h > canvas.height) player.y = canvas.height - player.h;
-    }
-    canvas.addEventListener('mousemove', setPlayerPos);
-    canvas.addEventListener('touchmove', (e) => { e.preventDefault(); setPlayerPos(e); }, { passive: false });
-
-    canvas.addEventListener('click', () => { if(gameState === 'START') gameState = 'PLAYING'; });
-    canvas.addEventListener('touchstart', () => { if(gameState === 'START') gameState = 'PLAYING'; });
-
-    function drawRect(x, y, w, h, color) {
-      ctx.fillStyle = color;
-      ctx.fillRect(x, y, w, h);
-    }
-    
-    function drawText(text, x, y, size=60, align="left") {
-      ctx.fillStyle = 'rgba(255,255,255,0.7)';
-      ctx.font = `${size}px "Press Start 2P"`;
-      ctx.textAlign = align;
-      ctx.fillText(text, x, y);
-      ctx.textAlign = "left";
-    }
-
-    function resetBall() {
-      ball.x = canvas.width / 2;
-      ball.y = canvas.height / 2;
-      ball.dx = (ball.dx > 0 ? -3 : 3);
-      ball.dy = (Math.random() > 0.5 ? 3 : -3);
-    }
-
-    function update() {
-      if(gameState !== 'PLAYING') return;
-      if(ai.y + ai.h/2 < ball.y) ai.y += ai.dy; else ai.y -= ai.dy;
-      ball.x += ball.dx; ball.y += ball.dy;
-      if(ball.y <= 0 || ball.y + ball.h >= canvas.height) ball.dy *= -1;
-      if(ball.x <= 0) { ai.score++; resetBall(); }
-      if(ball.x + ball.w >= canvas.width) { player.score++; resetBall(); }
-      ai.x = canvas.width - 30;
-      let hitPlayer = (ball.x <= player.x + player.w && ball.y + ball.h >= player.y && ball.y <= player.y + player.h);
-      let hitAi = (ball.x + ball.w >= ai.x && ball.y + ball.h >= ai.y && ball.y <= ai.y + ai.h);
-      if(hitPlayer || hitAi) {
-        ball.dx *= -1.02;
-        if(hitPlayer) {
-          let hitPoint = ball.y - (player.y + player.h/2);
-          ball.dy = hitPoint * 0.15;
-          ball.x = player.x + player.w;
-        } else {
-          ball.x = ai.x - ball.w;
-        }
-      }
-    }
-
-    function draw() {
-      drawRect(0, 0, canvas.width, canvas.height, '#111');
-      if(gameState === 'START') {
-        drawText("PONG", canvas.width/2, canvas.height/2 - 20, 50, "center");
-        if(Math.floor(Date.now() / 500) % 2 === 0) {
-          drawText("CLICK TO START", canvas.width/2, canvas.height/2 + 40, 20, "center");
-        }
-        return;
-      }
-
-      drawText(player.score, canvas.width/4, 80);
-      drawText(ai.score, 3*canvas.width/4, 80);
-      drawRect(player.x, player.y, player.w, player.h, '#39FF14');
-      drawRect(ai.x, ai.y, ai.w, ai.h, '#FF0055');
-      drawRect(ball.x, ball.y, ball.w, ball.h, '#00FFFF');
-    }
-
-    function loop() {
-      update();
-      draw();
-      requestAnimationFrame(loop);
-    }
-    loop();
-  </script>
+  };
+  btn.addEventListener('mouseenter', () => { if (dodges < 2) dodge(); });
+  btn.addEventListener('click', () => {
+    if (dodges < 2) { dodge(); return; }
+    btn.style.transform = 'none';
+    btn.disabled = true;
+    btn.textContent = 'Fine. Take your time.';
+    note.textContent = 'The retainer will be here when you’re ready.';
+  });
+})();
+</script>
 </body>
 </html>
-
-<style>
-  .header h1:hover { text-shadow: 0 0 20px var(--arcade-red); cursor: crosshair; }
-  
-  @keyframes neon-flash {
-    0%, 100% { text-shadow: 2px 2px 0 #000, 4px 4px 0 rgba(255,0,85,0.5); }
-    50% { text-shadow: 2px 2px 0 #000, 8px 8px 15px rgba(255,0,85,1); }
-  }
-  .header h1 { animation: neon-flash 1.5s infinite; }
-
-  @keyframes float-emoji {
-    0% { transform: translateY(0) rotate(0deg); opacity: 0; }
-    10% { opacity: 1; }
-    90% { opacity: 1; }
-    100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
-  }
-  .floating-emoji {
-    position: fixed;
-    font-size: 2rem;
-    z-index: 5;
-    pointer-events: none;
-    animation: float-emoji 5s linear infinite;
-  }
-</style>
-<script>
-  // Add floating emojis
-  const emojis = ["??", "??", "??", "??"];
-  for(let i=0; i<10; i++) {
-    let e = document.createElement("div");
-    e.className = "floating-emoji";
-    e.innerText = emojis[Math.floor(Math.random() * emojis.length)];
-    e.style.left = Math.random() * 100 + "vw";
-    e.style.bottom = "-50px";
-    e.style.animationDelay = (Math.random() * 5) + "s";
-    e.style.animationDuration = (Math.random() * 3 + 4) + "s";
-    document.body.appendChild(e);
-  }
-</script>
-
