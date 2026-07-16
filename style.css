@@ -1766,3 +1766,12 @@ h1, h2, h3, h4, h5, h6, .section-title {
   50% { transform: translateY(-10px); }
 }
 
+
+.marquee-set img {
+  filter: grayscale(1) brightness(0) opacity(0.5);
+  transition: opacity 0.3s ease;
+}
+.marquee-set img:hover {
+  opacity: 1;
+}
+

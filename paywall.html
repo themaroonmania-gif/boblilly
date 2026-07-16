@@ -17,7 +17,8 @@
       background: #000;
       color: #FFF;
       font-family: 'Press Start 2P', monospace;
-      overflow: hidden;
+      overflow-x: hidden;
+      overflow-y: auto;
       display: flex;
       flex-direction: column;
       height: 100vh;
@@ -100,7 +101,9 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      z-index: 999999;
+      z-index: 10;
+      min-height: 450px;
+      padding-bottom: 40px;
     }
     canvas {
       border: 4px solid #333;
