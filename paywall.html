@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bob Lilly Premium Paywall</title>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Syne:wght@400..800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --arcade-green: #39FF14;
+      --arcade-red: #FF0055;
+      --arcade-blue: #00FFFF;
+    }
+    body {
+      margin: 0;
+      padding: 0;
+      background: #000;
+      color: #FFF;
+      font-family: 'Press Start 2P', monospace;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+    }
+    .crt::before {
+      content: " ";
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+      z-index: 2;
+      background-size: 100% 2px, 3px 100%;
+      pointer-events: none;
+    }
+    .header {
+      text-align: center;
+      padding: 30px 20px;
+      z-index: 10;
+      position: relative;
+    }
+    h1 {
+      font-size: 2rem;
+      color: var(--arcade-red);
+      text-shadow: 2px 2px 0 #000, 4px 4px 0 rgba(255,0,85,0.5);
+      margin-bottom: 20px;
+    }
+    .message {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.2rem;
+      max-width: 800px;
+      margin: 0 auto 30px;
+      line-height: 1.6;
+      font-weight: 600;
+      color: #E0E0E0;
+    }
+    .message strong {
+      color: var(--arcade-green);
+    }
+    .options {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      margin-bottom: 20px;
+      position: relative;
+      z-index: 10;
+    }
+    .arcade-btn {
+      background: transparent;
+      border: 4px solid var(--arcade-blue);
+      color: var(--arcade-blue);
+      font-family: 'Press Start 2P', monospace;
+      padding: 15px 30px;
+      font-size: 1rem;
+      cursor: pointer;
+      text-decoration: none;
+      transition: 0.2s;
+      box-shadow: 0 0 15px rgba(0,255,255,0.3), inset 0 0 15px rgba(0,255,255,0.3);
+    }
+    .arcade-btn:hover {
+      background: var(--arcade-blue);
+      color: #000;
+      box-shadow: 0 0 30px rgba(0,255,255,0.8), inset 0 0 30px rgba(0,255,255,0.8);
+    }
+    .arcade-btn.btn-red {
+      border-color: var(--arcade-red);
+      color: var(--arcade-red);
+      box-shadow: 0 0 15px rgba(255,0,85,0.3), inset 0 0 15px rgba(255,0,85,0.3);
+    }
+    .arcade-btn.btn-red:hover {
+      background: var(--arcade-red);
+      color: #000;
+      box-shadow: 0 0 30px rgba(255,0,85,0.8), inset 0 0 30px rgba(255,0,85,0.8);
+    }
+    .game-container {
+      flex: 1;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    canvas {
+      border: 4px solid #333;
+      background: #111;
+      box-shadow: 0 0 50px rgba(57, 255, 20, 0.2);
+    }
+    .instructions {
+      text-align: center;
+      font-size: 0.7rem;
+      color: #888;
+      margin-top: 10px;
+    }
+    .back-link {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      color: #888;
+      text-decoration: none;
+      font-size: 0.8rem;
+      z-index: 10;
+    }
+    .back-link:hover {
+      color: #FFF;
+    }
+  </style>
+</head>
+<body class="crt">
+  <a href="index.html" class="back-link">< GO BACK TO ADMIRING</a>
+  <div class="header">
+    <h1>HOLD YOUR HORSES.</h1>
+    <div class="message">
+      You spent <strong>hundreds of hours</strong> building your current site. I built this stunning prototype in an afternoon.<br><br>
+      <strong>Imagine what we could build if we worked together?</strong>
+    </div>
+    <div class="options">
+      <a href="mailto:thomas@thomasharden.com?subject=I%20love%20it!" class="arcade-btn">RETAINER ($100/mo)</a>
+      <a href="mailto:thomas@thomasharden.com?subject=I%20love%20it!" class="arcade-btn btn-red">BUYOUT ($400 FLAT)</a>
+    </div>
+    <div class="instructions">Before you can click that link, the developer requires his tribute. Play a game while you think about it.</div>
+  </div>
+
+  <div class="game-container">
+    <canvas id="gameCanvas" width="800" height="400"></canvas>
+  </div>
+
+  <script>
+    // PONG ARCADE GAME
+    const canvas = document.getElementById('gameCanvas');
+    const ctx = canvas.getContext('2d');
+
+    const paddleWidth = 10, paddleHeight = 80;
+    const ballSize = 10;
+    let upPressed = false, downPressed = false;
+
+    const player = { x: 20, y: canvas.height/2 - paddleHeight/2, w: paddleWidth, h: paddleHeight, dy: 6, score: 0 };
+    const ai = { x: canvas.width - 30, y: canvas.height/2 - paddleHeight/2, w: paddleWidth, h: paddleHeight, dy: 4, score: 0 };
+    const ball = { x: canvas.width/2, y: canvas.height/2, w: ballSize, h: ballSize, dx: 5, dy: 5 };
+
+    document.addEventListener('keydown', (e) => {
+      if(e.key === 'ArrowUp') upPressed = true;
+      if(e.key === 'ArrowDown') downPressed = true;
+    });
+    document.addEventListener('keyup', (e) => {
+      if(e.key === 'ArrowUp') upPressed = false;
+      if(e.key === 'ArrowDown') downPressed = false;
+    });
+
+    function drawRect(x, y, w, h, color) {
+      ctx.fillStyle = color;
+      ctx.fillRect(x, y, w, h);
+    }
+    
+    function drawText(text, x, y) {
+      ctx.fillStyle = 'rgba(255,255,255,0.3)';
+      ctx.font = '60px "Press Start 2P"';
+      ctx.fillText(text, x, y);
+    }
+
+    function resetBall() {
+      ball.x = canvas.width / 2;
+      ball.y = canvas.height / 2;
+      ball.dx *= -1;
+    }
+
+    function update() {
+      // Player movement
+      if(upPressed && player.y > 0) player.y -= player.dy;
+      if(downPressed && player.y < canvas.height - player.h) player.y += player.dy;
+
+      // AI movement
+      if(ai.y + ai.h/2 < ball.y) ai.y += ai.dy;
+      else ai.y -= ai.dy;
+
+      // Ball movement
+      ball.x += ball.dx;
+      ball.y += ball.dy;
+
+      // Wall collision (top/bottom)
+      if(ball.y <= 0 || ball.y + ball.h >= canvas.height) ball.dy *= -1;
+
+      // Score
+      if(ball.x <= 0) { ai.score++; resetBall(); }
+      if(ball.x + ball.w >= canvas.width) { player.score++; resetBall(); }
+
+      // Paddle collision
+      let hitPlayer = (ball.x <= player.x + player.w && ball.y + ball.h >= player.y && ball.y <= player.y + player.h);
+      let hitAi = (ball.x + ball.w >= ai.x && ball.y + ball.h >= ai.y && ball.y <= ai.y + ai.h);
+
+      if(hitPlayer || hitAi) {
+        ball.dx *= -1.05; // increase speed slightly
+      }
+    }
+
+    function draw() {
+      // Clear
+      drawRect(0, 0, canvas.width, canvas.height, '#111');
+      
+      // Center dashed line
+      ctx.setLineDash([10, 15]);
+      ctx.beginPath();
+      ctx.moveTo(canvas.width/2, 0);
+      ctx.lineTo(canvas.width/2, canvas.height);
+      ctx.strokeStyle = 'rgba(255,255,255,0.2)';
+      ctx.stroke();
+      
+      drawText(player.score, canvas.width/4, 80);
+      drawText(ai.score, 3*canvas.width/4, 80);
+
+      // Draw objects
+      drawRect(player.x, player.y, player.w, player.h, '#39FF14');
+      drawRect(ai.x, ai.y, ai.w, ai.h, '#FF0055');
+      drawRect(ball.x, ball.y, ball.w, ball.h, '#00FFFF');
+    }
+
+    function loop() {
+      update();
+      draw();
+      requestAnimationFrame(loop);
+    }
+    loop();
+  </script>
+</body>
+</html>

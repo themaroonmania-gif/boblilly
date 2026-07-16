@@ -252,22 +252,7 @@ document.addEventListener('DOMContentLoaded', () => {
   carouselWrap.addEventListener('mouseleave', resetAutoPlay);
 
 
-  // ========== PAYWALL MODAL ==========
-  const paywallOverlay = document.getElementById('paywallOverlay');
-  const paywallClose = document.getElementById('paywallClose');
-
-  function openPaywall(e) {
-    e.preventDefault();
-    e.stopPropagation();
-    paywallOverlay.classList.add('active');
-    document.body.style.overflow = 'hidden';
-  }
-
-  function closePaywall() {
-    paywallOverlay.classList.remove('active');
-    document.body.style.overflow = '';
-  }
-
+  // ========== PAYWALL REDIRECT ==========
   // Intercept ALL anchor clicks
   document.addEventListener('click', (e) => {
     const link = e.target.closest('a');
@@ -280,7 +265,6 @@ document.addEventListener('DOMContentLoaded', () => {
       e.preventDefault();
       const target = document.querySelector(href);
       if (target) {
-        closePaywall();
         target.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
       return;
@@ -289,19 +273,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // Allow tel: and mailto: links natively
     if (href && (href.startsWith('tel:') || href.startsWith('mailto:'))) return;
 
-    // Everything else triggers paywall
-    openPaywall(e);
-  });
-
-  paywallClose.addEventListener('click', closePaywall);
-
-  paywallOverlay.addEventListener('click', (e) => {
-    if (e.target === paywallOverlay) closePaywall();
-  });
-
-  // ESC to close
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') closePaywall();
+    // Everything else triggers paywall page
+    e.preventDefault();
+    window.location.href = 'paywall.html';
   });
 
 
