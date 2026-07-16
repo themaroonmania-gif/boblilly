@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Fine Print — Bob Lilly Promotions Concept</title>
+<title>The Fun Page — Bob Lilly Promotions Concept</title>
 <meta name="robots" content="noindex">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800;900&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 <link rel="icon" type="image/webp" href="assets/logo.webp">
 <style>
 :root {
@@ -15,13 +15,16 @@
   --navy-2: #0B1E2D;
   --orange: #FF552F;
   --orange-2: #E54D2B;
+  --blue: #0072D2;
   --mist: #EDF2F6;
   --white-soft: rgba(255,255,255,.72);
   --line-light: rgba(255,255,255,.12);
   --display: 'Archivo','Inter',sans-serif;
+  --mono: 'JetBrains Mono', monospace;
   --ease: cubic-bezier(.22,.61,.36,1);
 }
 * { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior: smooth; }
 body {
   font-family: 'Inter', sans-serif;
   background:
@@ -31,19 +34,34 @@ body {
   color: #fff;
   min-height: 100vh;
   line-height: 1.6;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 96px 20px 80px;
   overflow-x: hidden;
 }
 a { color: inherit; }
+button { font-family: inherit; cursor: pointer; }
+
+/* ---- top ticker ---- */
+.ticker {
+  background: var(--orange);
+  color: var(--navy);
+  overflow: hidden;
+  padding: 9px 0;
+  font-family: var(--display);
+  font-weight: 900;
+  font-size: 13px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.ticker-track { display: flex; width: max-content; animation: tick 26s linear infinite; }
+.ticker-track span { padding-right: 14px; }
+@keyframes tick { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+@media (prefers-reduced-motion: reduce) { .ticker-track { animation: none; } }
 
 .back {
   position: fixed;
-  top: 22px;
-  left: 24px;
-  font-size: 13.5px;
+  top: 54px;
+  left: 22px;
+  font-size: 13px;
   font-weight: 600;
   color: var(--white-soft);
   text-decoration: none;
@@ -54,21 +72,29 @@ a { color: inherit; }
   border-radius: 999px;
   padding: 10px 18px;
   transition: all .3s var(--ease);
-  z-index: 10;
+  z-index: 50;
   background: rgba(7,20,30,.6);
   backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
 }
 .back:hover { color:#fff; border-color:#fff; }
 
-.wrap { max-width: 860px; width: 100%; text-align: center; }
+.wrap {
+  max-width: 900px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 110px 20px 90px;
+  text-align: center;
+}
 
 .badge {
   display: inline-flex;
   align-items: center;
   gap: 9px;
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: .16em;
+  font-family: var(--mono);
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: .14em;
   text-transform: uppercase;
   color: var(--white-soft);
   border: 1px solid var(--line-light);
@@ -88,46 +114,59 @@ a { color: inherit; }
 h1 {
   font-family: var(--display);
   font-weight: 900;
-  font-size: clamp(36px, 6vw, 64px);
-  line-height: 1;
+  font-size: clamp(38px, 7vw, 72px);
+  line-height: .98;
   letter-spacing: -.02em;
   text-transform: uppercase;
-  margin-bottom: 26px;
+  margin-bottom: 28px;
 }
-h1 span { color: var(--orange); }
+h1 .pop { color: var(--orange); }
 
 .lede {
   font-size: clamp(16px, 1.8vw, 19px);
   color: var(--white-soft);
-  max-width: 62ch;
-  margin: 0 auto 14px;
+  max-width: 60ch;
+  margin: 0 auto 16px;
 }
 .lede strong { color: #fff; }
+.lede .hl { color: var(--orange); font-weight: 700; }
 .fine {
-  font-size: 13.5px;
-  color: rgba(255,255,255,.45);
-  margin-bottom: 54px;
+  font-family: var(--mono);
+  font-size: 12.5px;
+  color: rgba(255,255,255,.42);
+  margin-bottom: 60px;
 }
 
+.sec-label {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--white-soft);
+  margin: 70px 0 28px;
+}
+.sec-label b { color: var(--orange); font-weight: 600; }
+
+/* ---- cards ---- */
 .cards {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 22px;
   text-align: left;
-  margin-bottom: 34px;
 }
 .card {
   background: var(--navy-2);
   border: 1px solid var(--line-light);
   border-radius: 20px;
-  padding: 34px 30px;
+  padding: 36px 30px 30px;
   position: relative;
-  transition: transform .35s var(--ease), border-color .35s;
+  transition: transform .35s var(--ease), border-color .35s, box-shadow .35s;
   display: flex;
   flex-direction: column;
 }
-.card:hover { transform: translateY(-6px); border-color: rgba(255,255,255,.28); }
+.card:hover { transform: translateY(-6px) rotate(-.4deg); border-color: rgba(255,255,255,.28); box-shadow: 0 30px 60px -20px rgba(0,0,0,.5); }
 .card.featured { border-color: var(--orange); }
+.card.featured:hover { transform: translateY(-6px) rotate(.4deg); }
 .card .flag {
   position: absolute;
   top: -13px;
@@ -152,7 +191,7 @@ h1 span { color: var(--orange); }
 .price {
   font-family: var(--display);
   font-weight: 900;
-  font-size: 44px;
+  font-size: 46px;
   letter-spacing: -.02em;
   margin-bottom: 4px;
 }
@@ -165,6 +204,7 @@ h1 span { color: var(--orange); }
   padding: 7px 0 7px 26px;
   position: relative;
 }
+.card li strong { color: #fff; }
 .card li::before {
   content: "";
   position: absolute;
@@ -192,98 +232,280 @@ h1 span { color: var(--orange); }
 .cta-line { border: 1.5px solid var(--line-light); color: #fff; }
 .cta-line:hover { border-color: #fff; transform: translateY(-2px); }
 
-.think-wrap { min-height: 64px; position: relative; margin-bottom: 40px; }
+.better-note {
+  margin-top: 26px;
+  font-size: 14.5px;
+  color: var(--white-soft);
+  max-width: 56ch;
+  margin-left: auto;
+  margin-right: auto;
+}
+.better-note strong { color: #fff; }
+
+/* ---- objection handler ---- */
+.objection {
+  background: var(--navy-2);
+  border: 1px solid var(--line-light);
+  border-radius: 20px;
+  overflow: hidden;
+  text-align: left;
+}
+.obj-titlebar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 18px;
+  border-bottom: 1px solid var(--line-light);
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--white-soft);
+}
+.obj-titlebar i { width: 10px; height: 10px; border-radius: 50%; font-style: normal; }
+.obj-titlebar i:nth-child(1) { background: #ff5f57; }
+.obj-titlebar i:nth-child(2) { background: #febc2e; }
+.obj-titlebar i:nth-child(3) { background: #28c840; }
+.obj-titlebar span { margin-left: 8px; }
+.obj-body { display: grid; grid-template-columns: 1fr 1.4fr; min-height: 240px; }
+.obj-list { border-right: 1px solid var(--line-light); display: flex; flex-direction: column; }
+.obj-item {
+  background: none;
+  border: 0;
+  border-bottom: 1px solid var(--line-light);
+  color: var(--white-soft);
+  text-align: left;
+  padding: 16px 18px;
+  font-size: 13.5px;
+  font-weight: 600;
+  display: flex;
+  gap: 12px;
+  align-items: baseline;
+  transition: background .25s, color .25s;
+}
+.obj-item:last-child { border-bottom: 0; }
+.obj-item b { font-family: var(--mono); font-weight: 600; color: var(--orange); font-size: 11.5px; }
+.obj-item:hover { background: rgba(255,255,255,.04); color: #fff; }
+.obj-item.on { background: rgba(255,85,47,.12); color: #fff; }
+.obj-answer { padding: 22px 24px; font-family: var(--mono); font-size: 13.5px; line-height: 1.75; color: var(--white-soft); }
+.obj-answer .who { color: var(--orange); font-weight: 600; }
+.obj-answer .cursor { display: inline-block; width: 8px; height: 15px; background: var(--orange); vertical-align: -2px; animation: blink 1s infinite; }
+
+/* ---- merch lever ---- */
+.lever-zone { padding: 8px 0 0; }
+.lever-btn {
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: 15px;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: #fff;
+  background: linear-gradient(180deg, var(--blue), #0058A2);
+  border: 0;
+  border-radius: 14px;
+  padding: 18px 34px;
+  box-shadow: 0 12px 32px -10px rgba(0,114,210,.6);
+  transition: transform .2s var(--ease);
+}
+.lever-btn:hover { transform: translateY(-2px); }
+.lever-btn:active { transform: translateY(2px) scale(.98); }
+.lever-note { font-family: var(--mono); font-size: 12px; color: rgba(255,255,255,.42); margin-top: 12px; }
+.merch-drop {
+  position: fixed;
+  top: -60px;
+  font-size: 30px;
+  z-index: 200;
+  pointer-events: none;
+  animation: drop linear forwards;
+}
+@keyframes drop {
+  to { transform: translateY(115vh) rotate(360deg); }
+}
+
+/* ---- commitment button ---- */
+.think-wrap { min-height: 100px; position: relative; }
 #thinkBtn {
-  font-family: inherit;
   font-size: 13.5px;
   font-weight: 600;
   color: var(--white-soft);
   background: none;
   border: 1px solid var(--line-light);
   border-radius: 999px;
-  padding: 12px 22px;
-  cursor: pointer;
-  transition: left .35s var(--ease), top .35s var(--ease), color .3s;
-  position: relative;
+  padding: 13px 24px;
+  transition: transform .35s var(--ease), color .3s, border-color .3s;
 }
-#thinkBtn:hover { color: #fff; }
+#thinkBtn:hover { color: #fff; border-color: rgba(255,255,255,.3); }
 #thinkNote {
   display: block;
-  font-size: 12.5px;
-  color: rgba(255,255,255,.4);
-  margin-top: 12px;
+  font-family: var(--mono);
+  font-size: 12px;
+  color: rgba(255,255,255,.42);
+  margin-top: 14px;
   min-height: 18px;
 }
 
+/* ---- footer ---- */
 .ps {
   border-top: 1px solid var(--line-light);
-  padding-top: 30px;
+  margin-top: 70px;
+  padding-top: 32px;
   font-size: 13.5px;
-  color: rgba(255,255,255,.45);
-  max-width: 58ch;
-  margin: 0 auto;
+  color: rgba(255,255,255,.5);
+  max-width: 60ch;
+  margin-left: auto;
+  margin-right: auto;
 }
-.ps a { color: var(--white-soft); }
-.ps a:hover { color: #fff; }
+.ps a { color: #fff; font-weight: 600; }
+.ps a:hover { color: var(--orange); }
+.ps .nofake {
+  display: block;
+  font-family: var(--mono);
+  font-size: 11.5px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+  color: rgba(255,255,255,.38);
+}
 
-@media (max-width: 720px) {
-  body { padding-top: 84px; }
+@media (max-width: 760px) {
+  .back { top: 48px; left: 12px; padding: 8px 14px; }
+  .wrap { padding-top: 96px; }
   .cards { grid-template-columns: 1fr; }
-  .back { top: 14px; left: 14px; }
+  .obj-body { grid-template-columns: 1fr; }
+  .obj-list { border-right: 0; border-bottom: 1px solid var(--line-light); }
+  .obj-answer { min-height: 150px; }
 }
 </style>
 </head>
 <body>
 
-<a class="back" href="index.html">&larr; Back to admiring the concept</a>
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track">
+    <span>Hosted for you &#9733; Unlimited tweaks &#9733; Built in Dallas &#9733; No meetings required &#9733; Cancel anytime &#9733; Your hours stay yours &#9733; </span><span>Hosted for you &#9733; Unlimited tweaks &#9733; Built in Dallas &#9733; No meetings required &#9733; Cancel anytime &#9733; Your hours stay yours &#9733; </span>
+  </div>
+</div>
+
+<a class="back" href="index.html">&larr; Back to the concept</a>
 
 <div class="wrap">
-  <div class="badge"><i></i>You found the fine print</div>
+  <div class="badge"><i></i>06 / The only page that isn&rsquo;t about Bob Lilly Promotions</div>
 
-  <h1>This is the part where I <span>level with you</span>.</h1>
+  <h1>You found<br>the <span class="pop">fun page</span>.</h1>
 
-  <p class="lede">Everything you just scrolled through was built from scratch as a free concept &mdash; using nothing but what&rsquo;s already public on your site. You put <strong>hundreds of hours</strong> into your current site. This one took me an afternoon. That&rsquo;s not a knock on you &mdash; it&rsquo;s the whole pitch: <strong>imagine what happens when those hundreds of hours go back to running Bob Lilly Promotions.</strong></p>
-  <p class="fine">(I also couldn&rsquo;t find the hero video from your real site, so the concept gets a still photo. Consider it a placeholder, not a design opinion.)</p>
+  <p class="lede">Everything you just scrolled through was built as a <strong>free concept</strong>, using only what&rsquo;s already public on your site &mdash; real photos, real case studies, real reviews. And here&rsquo;s the exciting part: that was <span class="hl">zero conversations with you</span>. Imagine the version where you point at things and say &ldquo;more of that.&rdquo;</p>
+  <p class="fine">// all prices below are real. the page around them has personality.</p>
 
+  <div class="sec-label"><b>01 /</b> Two ways to take this off my hands</div>
   <div class="cards">
     <div class="card featured">
       <span class="flag">The smart money</span>
-      <h2>The Retainer</h2>
+      <h2>We Work Together</h2>
       <div class="price">$100<small>/mo</small></div>
-      <p>I become the guy who keeps your site sharp, so it stops eating your evenings.</p>
+      <p>I host it, I maintain it, and it quietly stays excellent while you run the company.</p>
       <ul>
-        <li>Tweaks, fixes, and updates handled same-week</li>
-        <li>The &ldquo;small stuff&rdquo; from my emails &mdash; done in afternoons</li>
-        <li>Performance and page-weight kept in check</li>
+        <li><strong>Hosting included</strong> &mdash; fast, secure, handled</li>
+        <li><strong>Unlimited tweaks</strong> &mdash; you email, it gets done</li>
+        <li>New pages, seasonal updates, fresh case studies</li>
+        <li>Performance kept sharp (no 13MB homepages)</li>
         <li>No meetings unless you want them</li>
         <li>Cancel anytime, zero hard feelings</li>
       </ul>
-      <a class="cta cta-solid" href="mailto:thomas@thomasharden.com?subject=Let&rsquo;s%20do%20the%20retainer">Let&rsquo;s do it &rarr;</a>
+      <a class="cta cta-solid" href="mailto:thomas@thomasharden.com?subject=Let%27s%20work%20together">Let&rsquo;s work together &rarr;</a>
     </div>
     <div class="card">
       <h2>The Buyout</h2>
       <div class="price">$400<small> flat</small></div>
-      <p>This entire concept &mdash; code, design, everything &mdash; handed over. Yours to keep, host, or hand to your team.</p>
+      <p>The whole concept &mdash; code, design, everything &mdash; handed over with a bow on it.</p>
       <ul>
-        <li>Full source code, no strings</li>
+        <li>Full source code, no strings attached</li>
         <li>One round of revisions included</li>
         <li>Walkthrough call so nothing is a mystery</li>
-        <li>I disappear gracefully</li>
+        <li>Your team hosts it wherever you like</li>
       </ul>
-      <a class="cta cta-line" href="mailto:thomas@thomasharden.com?subject=I&rsquo;ll%20take%20the%20buyout">Take it all &rarr;</a>
+      <a class="cta cta-line" href="mailto:thomas@thomasharden.com?subject=I%27ll%20take%20the%20buyout">Take it all &rarr;</a>
+    </div>
+  </div>
+  <p class="better-note">Honest note: this concept is maybe <strong>80% of what it could be</strong>. The missing 20% is your input &mdash; the stories, the photos I couldn&rsquo;t find, the stuff only you know. That part&rsquo;s the fun part.</p>
+
+  <div class="sec-label"><b>02 /</b> Frequently raised eyebrows</div>
+  <div class="objection">
+    <div class="obj-titlebar"><i></i><i></i><i></i><span>objection_handler.exe</span></div>
+    <div class="obj-body">
+      <div class="obj-list" id="objList">
+        <button class="obj-item on" data-a="Loved it. Truly. The bones are great and the SEO work shows — 98/100 on desktop PageSpeed. This concept isn't a replacement pitch, it's a &quot;what if you never had to touch it again&quot; pitch. Your hundreds of hours go back to running the company."><b>01</b> We literally just launched our site.</button>
+        <button class="obj-item" data-a="Thomas Harden. Dallas, TX. I build websites and the systems behind them. I sold you nothing yet and already fixed your testimonial attributions — imagine what happens when money changes hands."><b>02</b> Who even are you?</button>
+        <button class="obj-item" data-a="Nope. $100/mo, cancel whenever. No contracts, no setup fees, no countdown timers, no &quot;this offer expires&quot; nonsense. Fake scarcity is for people whose work can't close the deal on its own."><b>03</b> What&rsquo;s the catch?</button>
+        <button class="obj-item" data-a="Yes. That is literally the entire funnel: thomas@thomasharden.com. You email, I reply, things get built. The reply will contain dramatically fewer moving objects than this page."><b>04</b> Can we just email?</button>
+      </div>
+      <div class="obj-answer" id="objAnswer"><span class="who">&gt; THOMAS:</span> <span id="objText"></span><span class="cursor"></span></div>
     </div>
   </div>
 
+  <div class="sec-label"><b>03 /</b> A demonstration of merchandise logistics</div>
+  <div class="lever-zone">
+    <button class="lever-btn" id="leverBtn">&#127881; Pull the merch lever</button>
+    <p class="lever-note">// deploys a carefully measured amount of promotional product from the ceiling</p>
+  </div>
+
+  <div class="sec-label"><b>04 /</b> For the undecided</div>
   <div class="think-wrap">
     <button id="thinkBtn" type="button">Let me think about it</button>
     <span id="thinkNote"></span>
   </div>
 
-  <p class="ps">P.S. &mdash; No pressure either way. The concept stays free, the opinions stay honest, and the phone number stays the same: <a href="mailto:thomas@thomasharden.com">thomas@thomasharden.com</a>. &mdash; Thomas Harden, Web Developer, Dallas TX</p>
+  <p class="ps">
+    <span class="nofake">No countdown / No fake scarcity / Just an inbox</span>
+    The concept stays free either way, and the opinions stay honest. When you&rsquo;re ready: <a href="mailto:thomas@thomasharden.com">thomas@thomasharden.com</a><br>&mdash; Thomas Harden, Web Developer, Dallas TX
+  </p>
 </div>
 
 <script>
-// The classic: the "think about it" button plays hard to get — twice.
+// ---- objection handler ----
+(function () {
+  const items = document.querySelectorAll('.obj-item');
+  const text = document.getElementById('objText');
+  let typeTimer = null;
+  const typeOut = (str) => {
+    clearInterval(typeTimer);
+    let i = 0;
+    text.textContent = '';
+    typeTimer = setInterval(() => {
+      text.textContent = str.slice(0, ++i);
+      if (i >= str.length) clearInterval(typeTimer);
+    }, 12);
+  };
+  items.forEach(btn => btn.addEventListener('click', () => {
+    items.forEach(b => b.classList.remove('on'));
+    btn.classList.add('on');
+    typeOut(btn.dataset.a);
+  }));
+  typeOut(items[0].dataset.a);
+})();
+
+// ---- merch lever ----
+(function () {
+  const btn = document.getElementById('leverBtn');
+  const MERCH = ['🧢','👕','🏆','☕','🎁','🖊️','🎒','📦','🥤','⭐'];
+  let pulls = 0;
+  btn.addEventListener('click', () => {
+    pulls++;
+    const n = 26;
+    for (let i = 0; i < n; i++) {
+      const d = document.createElement('div');
+      d.className = 'merch-drop';
+      d.textContent = MERCH[Math.floor(Math.random() * MERCH.length)];
+      d.style.left = Math.random() * 100 + 'vw';
+      d.style.animationDuration = (Math.random() * 1.6 + 1.6) + 's';
+      d.style.animationDelay = (Math.random() * .8) + 's';
+      d.style.fontSize = (Math.random() * 18 + 20) + 'px';
+      document.body.appendChild(d);
+      setTimeout(() => d.remove(), 4500);
+    }
+    if (pulls === 3) btn.textContent = '🎉 Okay one more';
+    if (pulls === 4) btn.textContent = '🧢 Fulfillment dept. is tired';
+    if (pulls >= 5) { btn.textContent = '📦 Out of stock (email Thomas)'; btn.disabled = true; btn.style.opacity = .6; }
+  });
+})();
+
+// ---- commitment-issues button ----
 (function () {
   const btn = document.getElementById('thinkBtn');
   const note = document.getElementById('thinkNote');
@@ -291,11 +513,11 @@ h1 span { color: var(--orange); }
   const dodge = () => {
     dodges++;
     if (dodges === 1) {
-      btn.style.transform = 'translateX(120px)';
-      note.textContent = 'Hmm.';
+      btn.style.transform = 'translateX(110px)';
+      note.textContent = '> button.exe is avoiding the question';
     } else if (dodges === 2) {
-      btn.style.transform = 'translateX(-120px)';
-      note.textContent = 'It really is only $100.';
+      btn.style.transform = 'translateX(-110px)';
+      note.textContent = '> it really is only $100 a month';
     }
   };
   btn.addEventListener('mouseenter', () => { if (dodges < 2) dodge(); });
@@ -304,7 +526,7 @@ h1 span { color: var(--orange); }
     btn.style.transform = 'none';
     btn.disabled = true;
     btn.textContent = 'Fine. Take your time.';
-    note.textContent = 'The retainer will be here when you’re ready.';
+    note.textContent = '> the inbox will be here when you’re ready';
   });
 })();
 </script>
