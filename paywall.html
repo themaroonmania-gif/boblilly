@@ -105,6 +105,9 @@
       border: 4px solid #333;
       background: #111;
       box-shadow: 0 0 50px rgba(57, 255, 20, 0.2);
+      width: 100%;
+      max-width: 800px;
+      touch-action: none;
     }
     .instructions {
       text-align: center;
@@ -149,23 +152,35 @@
     // PONG ARCADE GAME
     const canvas = document.getElementById('gameCanvas');
     const ctx = canvas.getContext('2d');
+    const container = document.querySelector('.game-container');
+
+    function resize() {
+      canvas.width = Math.min(800, container.clientWidth - 40);
+      canvas.height = Math.min(400, container.clientHeight - 40);
+    }
+    window.addEventListener('resize', resize);
+    resize();
 
     const paddleWidth = 10, paddleHeight = 80;
     const ballSize = 10;
-    let upPressed = false, downPressed = false;
 
-    const player = { x: 20, y: canvas.height/2 - paddleHeight/2, w: paddleWidth, h: paddleHeight, dy: 6, score: 0 };
+    const player = { x: 20, y: canvas.height/2 - paddleHeight/2, w: paddleWidth, h: paddleHeight, score: 0 };
     const ai = { x: canvas.width - 30, y: canvas.height/2 - paddleHeight/2, w: paddleWidth, h: paddleHeight, dy: 4, score: 0 };
     const ball = { x: canvas.width/2, y: canvas.height/2, w: ballSize, h: ballSize, dx: 5, dy: 5 };
 
-    document.addEventListener('keydown', (e) => {
-      if(e.key === 'ArrowUp') upPressed = true;
-      if(e.key === 'ArrowDown') downPressed = true;
-    });
-    document.addEventListener('keyup', (e) => {
-      if(e.key === 'ArrowUp') upPressed = false;
-      if(e.key === 'ArrowDown') downPressed = false;
-    });
+    // Mouse and Touch Controls
+    function setPlayerPos(e) {
+      let rect = canvas.getBoundingClientRect();
+      let clientY = e.touches ? e.touches[0].clientY : e.clientY;
+      let scaleY = canvas.height / rect.height;
+      let mouseY = (clientY - rect.top) * scaleY;
+      player.y = mouseY - player.h / 2;
+      // Clamp
+      if (player.y < 0) player.y = 0;
+      if (player.y + player.h > canvas.height) player.y = canvas.height - player.h;
+    }
+    canvas.addEventListener('mousemove', setPlayerPos);
+    canvas.addEventListener('touchmove', (e) => { e.preventDefault(); setPlayerPos(e); }, { passive: false });
 
     function drawRect(x, y, w, h, color) {
       ctx.fillStyle = color;
@@ -181,14 +196,11 @@
     function resetBall() {
       ball.x = canvas.width / 2;
       ball.y = canvas.height / 2;
-      ball.dx *= -1;
+      ball.dx = (ball.dx > 0 ? -5 : 5);
+      ball.dy = (Math.random() > 0.5 ? 5 : -5);
     }
 
     function update() {
-      // Player movement
-      if(upPressed && player.y > 0) player.y -= player.dy;
-      if(downPressed && player.y < canvas.height - player.h) player.y += player.dy;
-
       // AI movement
       if(ai.y + ai.h/2 < ball.y) ai.y += ai.dy;
       else ai.y -= ai.dy;
@@ -197,12 +209,15 @@
       ball.x += ball.dx;
       ball.y += ball.dy;
 
-      // Wall collision (top/bottom)
+      // Wall collision
       if(ball.y <= 0 || ball.y + ball.h >= canvas.height) ball.dy *= -1;
 
       // Score
       if(ball.x <= 0) { ai.score++; resetBall(); }
       if(ball.x + ball.w >= canvas.width) { player.score++; resetBall(); }
+
+      // Keep AI on screen after resize
+      ai.x = canvas.width - 30;
 
       // Paddle collision
       let hitPlayer = (ball.x <= player.x + player.w && ball.y + ball.h >= player.y && ball.y <= player.y + player.h);
@@ -210,14 +225,19 @@
 
       if(hitPlayer || hitAi) {
         ball.dx *= -1.05; // increase speed slightly
+        if(hitPlayer) {
+          let hitPoint = ball.y - (player.y + player.h/2);
+          ball.dy = hitPoint * 0.15;
+          ball.x = player.x + player.w; // Prevent getting stuck
+        } else {
+          ball.x = ai.x - ball.w;
+        }
       }
     }
 
     function draw() {
-      // Clear
       drawRect(0, 0, canvas.width, canvas.height, '#111');
       
-      // Center dashed line
       ctx.setLineDash([10, 15]);
       ctx.beginPath();
       ctx.moveTo(canvas.width/2, 0);
@@ -228,7 +248,6 @@
       drawText(player.score, canvas.width/4, 80);
       drawText(ai.score, 3*canvas.width/4, 80);
 
-      // Draw objects
       drawRect(player.x, player.y, player.w, player.h, '#39FF14');
       drawRect(ai.x, ai.y, ai.w, ai.h, '#FF0055');
       drawRect(ball.x, ball.y, ball.w, ball.h, '#00FFFF');
