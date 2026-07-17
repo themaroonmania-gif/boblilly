@@ -6,16 +6,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap');
 
 :root {
-  --navy: #F8F6F1;
-  --navy-2: #F0EDE7;
-  --navy-3: #E8E4DC;
+  --navy: #050B14;
+  --navy-2: #0A1628;
+  --navy-3: #112540;
   --orange: #FF552F;
   --orange-glow: rgba(255, 85, 47, 0.4);
   --blue: #0072D2;
   --white: #FFFFFF;
-  --text-muted: #6B6B6B;
-  --glass-bg: rgba(255, 255, 255, 0.6);
-  --glass-border: rgba(0, 0, 0, 0.08);
+  --text-muted: #94A3B8;
+  --glass-bg: rgba(255, 255, 255, 0.03);
+  --glass-border: rgba(255, 255, 255, 0.08);
   --display: 'Outfit', sans-serif;
   --text: 'Inter', sans-serif;
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
@@ -26,7 +26,7 @@
 html { scroll-behavior: smooth; background: var(--navy); }
 body {
   font-family: var(--text);
-  color: #1a1a1a;
+  color: var(--white);
   background-color: var(--navy);
   line-height: 1.6;
   overflow-x: hidden;
@@ -61,7 +61,7 @@ h1, h2, h3, h4, h5 { font-family: var(--display); font-weight: 800; letter-spaci
 h1 { font-size: clamp(3rem, 6vw, 5.5rem); margin-bottom: 24px; text-transform: uppercase; }
 h2 { font-size: clamp(2.5rem, 4vw, 3.5rem); margin-bottom: 20px; }
 .text-gradient {
-  background: linear-gradient(135deg, #050B14, #333);
+  background: linear-gradient(135deg, #fff, #94A3B8);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -76,7 +76,7 @@ h2 { font-size: clamp(2.5rem, 4vw, 3.5rem); margin-bottom: 20px; }
   cursor: pointer; position: relative; overflow: hidden;
 }
 .btn-primary {
-  background: var(--orange); color: #1a1a1a;
+  background: var(--orange); color: var(--white);
   box-shadow: 0 0 20px var(--orange-glow);
 }
 .btn-primary:hover {
@@ -86,7 +86,7 @@ h2 { font-size: clamp(2.5rem, 4vw, 3.5rem); margin-bottom: 20px; }
 }
 .btn-glass {
   background: var(--glass-bg); border: 1px solid var(--glass-border);
-  backdrop-filter: blur(10px); color: #1a1a1a;
+  backdrop-filter: blur(10px); color: var(--white);
 }
 .btn-glass:hover {
   background: rgba(255,255,255,0.1); transform: translateY(-3px);
